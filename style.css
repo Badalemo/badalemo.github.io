@@ -1,0 +1,97 @@
+html {
+  background-color: lightgrey;
+}
+#headerName {
+  font-family: "Montserrat";
+  text-align: center;
+}
+#headerInfo {
+  font-family: "Open Sans";
+  text-align: center;
+}
+.codingInstruction,
+.youthLeadership,
+.teamwork {
+  margin: 10px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+button {
+  background-color: teal;
+}
+button:hover {
+  filter: drop-shadow(2px 4px 6px black);
+  cursor: pointer;
+  opacity: 0.8;
+}
+#skill1,
+#skill2,
+#skill3 {
+  width: 300px;
+  padding: 10px;
+  border: solid 2px black;
+  border-radius: 15px;
+  color: white;
+  font-weight: bolder;
+}
+
+#hidden1,
+#hidden2,
+#hidden3 {
+  display: none;
+  text-align: center;
+  width: 90%;
+  padding: 10px;
+  border: solid 2px black;
+  border-radius: 15px;
+  background-color: teal;
+  color: white;
+  font-weight: bolder;
+  margin: 20px auto;
+}
+#hidden1Header {
+  text-align: center;
+}
+#hidden1List {
+  text-align: left;
+  display: inline-block;
+  border: solid 2px darkgray;
+  border-radius: 15px;
+  width: 95%;
+  padding: 20px;
+  padding-right: 0px;
+}
+#hidden2List {
+  text-align: left;
+  display: inline-block;
+  border: solid 2px darkgray;
+  border-radius: 15px;
+  width: 95%;
+  padding: 20px;
+  padding-right: 0px;
+}
+#hidden3List {
+  text-align: left;
+  display: inline-block;
+  border: solid 2px darkgray;
+  border-radius: 15px;
+  width: 95%;
+  padding: 20px;
+  padding-right: 0px;
+}
+hr {
+  width: 99%;
+}
+#hidden1Quote {
+  margin-left: 50px auto;
+  margin-bottom: 100px;
+}
