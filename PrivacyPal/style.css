@@ -1,0 +1,534 @@
+body,
+html {
+  height: auto;
+  width: auto;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0px 0px -50px 0px;
+}
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Inter;
+  background-color: #f3f4f5;
+  padding: 10px 20px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+  color: #9ca3af;
+  background-color: #1e2836;
+  margin-top: auto;
+  padding: 10px 20px;
+  bottom: 0;
+  width: 100%;
+}
+select {
+  font-family: Inter;
+  font-size: medium;
+  padding: 5px;
+  border-radius: 0.3em;
+  border: 1px solid #dfe2e5;
+  width: 90%;
+}
+#articleContent {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 0px;
+  background-color: #eff6ff;
+  color: #9ca3af;
+  width: 90%;
+  border: 1px solid #bfdbfe;
+  border-radius: 0.3em;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#quizContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px 10px 0px;
+  background-color: #f0fdf4;
+  color: #374151;
+  width: 90%;
+  border: 1px solid #bbf7d0;
+  border-radius: 0.3em;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+label[for="shift"] {
+  margin-left: 2em;
+}
+#shift {
+  border-radius: 0.3em;
+  width: 20px;
+}
+#textEncryptionDecryption,
+#passwordStrengthChecker,
+#educationArticlesInfo,
+#interactiveQuizzes,
+#phishingEmailSim {
+  font-family: Inter;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 90%;
+  border: 0.4px solid #dfe2e5;
+  border-radius: 0.7em;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+#educationArticlesInfo {
+  border-color: #9693c0;
+}
+#interactiveQuizzes {
+  border-color: #10b981;
+}
+#phishingEmailSim {
+  border-color: #b32021;
+  color: #9ca3af;
+}
+#phishingEmailBody {
+  color: black;
+}
+#phishingSubject {
+  color: red;
+}
+#phishingEmailSim h2 {
+  font-weight: bolder;
+  font-size: 25px;
+  color: #b32021;
+}
+#verifyButton {
+  background-color: #b32021;
+  color: white;
+  font-family: Inter;
+  font-weight: bolder;
+  font-size: medium;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0.6em;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#verifyButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+#phishingIntro {
+  color: #767b84;
+}
+#phishingEmailSim span {
+  cursor: pointer;
+}
+#phishingEmailSim h3 {
+  color: black;
+}
+#textEncryptionDecryption h2,
+#educationArticlesInfo h2 {
+  color: #4035c0;
+  font-weight: bolder;
+  font-size: 25px;
+}
+#textEncryptionDecryption p {
+  color: #535d6a;
+  font-size: 16px;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+#passwordStrengthChecker h2 {
+  color: #7a25c9;
+  font-weight: bolder;
+  font-size: 25px;
+  font-synthesis-weight: bolder;
+}
+#articleText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#formContainer {
+  display: none;
+}
+#toast-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+  transition: opacity 2s;
+}
+#toast-container.show {
+  display: block;
+  opacity: 1;
+}
+#toast-container.hide {
+  opacity: 0;
+}
+#toast-message {
+  font-weight: bold;
+  font-size: 16px;
+}
+#passwordStrengthChecker p {
+  color: #535d6a;
+  font-size: 16px;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+#passwordGenerator {
+  display: flex;
+  flex-direction: column;
+  margin: auto auto 20px auto;
+  width: 90%;
+  border: 1px solid #dfe2e5;
+  border-radius: 0.7em;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#passwordGenerator h2,
+#interactiveQuizzes h2 {
+  color: #10b981;
+  font-weight: bolder;
+  font-size: 25px;
+}
+#passwordGenerator p {
+  color: #535d6a;
+  font-size: 16px;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}
+#strengthBar,
+#strengthBarContainer {
+  border-radius: 20px;
+  background-color: #e5e7eb;
+  height: 12px;
+}
+#strengthBarContainer {
+  margin-top: 30px;
+  width: 95%;
+}
+label[for="passwordLength"] {
+  font-family: Inter;
+  color: #374151;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+#passwordLengthValue {
+  display: inline;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-right: 13px;
+  margin-left: 13px;
+}
+#strengthBar {
+  display: none;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.6s ease-in-out;
+}
+textarea {
+  font-family: Inter;
+  margin-bottom: 10px;
+}
+#encryptButton {
+  background-color: #4139c5;
+  width: 45%;
+}
+#encryptButton:hover {
+  transition: filter 0.3s;
+  filter: brightness(0.9);
+}
+#encryptButton:focus,
+#decryptButton:focus,
+#copyButton:focus {
+  outline: 3px solid #c7d2fe;
+  outline-offset: 3px;
+}
+#textEncryptionDecryption label {
+  color: #374151;
+}
+#decryptButton {
+  background-color: #374151;
+  width: 45%;
+}
+#decryptButton:hover {
+  transition: filter 0.3s;
+  filter: brightness(0.9);
+}
+#copyButton {
+  background-color: #3b82f6;
+  width: 90%;
+}
+#copyButton:hover {
+  transition: filter 0.3s;
+  filter: brightness(0.9);
+}
+#checkStrengthButton {
+  background-color: #4f46e5;
+}
+#quizText {
+  font-family: Inter;
+  margin-bottom: 0px;
+}
+#startQuizButton {
+  background-color: #10b981;
+  margin: 0px 0px 20px 0px;
+}
+#generatePasswordButton {
+  background-color: #10b981;
+}
+input[type="text"] {
+  border: solid 1px #dfe2e5;
+  padding: 5px 15px 5px 15px;
+}
+#encryptButton,
+#decryptButton,
+#copyButton,
+#checkStrengthButton,
+#generatePasswordButton,
+#startQuizButton {
+  color: white;
+  margin-top: 30px;
+  margin-right: 10px;
+  font-family: Inter;
+  font-weight: bolder;
+  font-size: medium;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0.6em;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#textInput,
+#outputText,
+#passwordInput,
+#generatedPassword {
+  width: 90%;
+  margin-top: 1em;
+  border-radius: 0.7em;
+  padding: 10px;
+  border: 1px solid #dfe2e5;
+}
+input[type="range"] {
+  width: 95%;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #10b981;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #12b981;
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  background-color: #12b981;
+}
+#strengthOutput {
+  display: inline;
+}
+#headerTitle {
+  margin: 0;
+  cursor: pointer;
+  color: #4035c0;
+  font-weight: bolder;
+}
+main {
+  font-family: Inter;
+}
+#toolsTitle,
+#learnTitle {
+  margin-top: 1.3em;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.headerButton {
+  display: inline-block;
+  margin-right: 15px;
+  border: none;
+  cursor: pointer;
+}
+#welcomeContainer {
+  font-family: Inter;
+  border: 0px solid #dfe2e5;
+  margin: 2em 2em 2em 2em;
+  border-radius: 0.7em;
+  padding: 10px 20px 20px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+#welcomeTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+#welcomeTitle {
+  margin-bottom: 5px;
+  font-size: 36px;
+}
+#welcomeText {
+  margin: 0px 0px 8px 0px;
+  font-family: sans-serif;
+  color: #535d6a;
+  text-align: center;
+}
+#welcomeButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+#exploreButton {
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #4035c0;
+  color: white;
+}
+#learnMoreButton {
+  display: inline-block;
+  margin-left: 10px;
+  background-color: #c9ced5;
+  color: black;
+}
+#checkStrengthButton {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #7a25c9;
+  color: white;
+}
+#exploreButton,
+#learnMoreButton {
+  font-family: Inter;
+  font-weight: bolder;
+  font-size: medium;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 0.6em;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#exploreButton:hover,
+#learnMoreButton:hover {
+  transition: filter 0.3s;
+  filter: brightness(0.9);
+}
+#aboutContainer {
+  display: flex;
+  font-family: Inter;
+  color: #767b84;
+  flex-direction: column;
+  margin: 20px 20px 20px 20px;
+  width: 95%;
+  border: 1px solid #dfe2e5;
+  border-radius: 0.7em;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#aboutTitle {
+  font-weight: bolder;
+  color: black;
+  font-size: 36px;
+  text-align: center;
+  margin-top: 5px;
+}
+#privacyPalName {
+  font-weight: bolder;
+  color: black;
+  text-align: center;
+}
+#missionTitle {
+  font-weight: bolder;
+  font-size: 25px;
+  margin-top: 20px;
+  color: #7a25c9;
+  margin-bottom: 0;
+}
+#keyTechTitle {
+  font-weight: bolder;
+  font-size: 25px;
+  margin-top: 20px;
+  color: #4035c0;
+  margin-bottom: 0;
+}
+#getInTouchTitle {
+  font-weight: bolder;
+  font-size: 25px;
+  margin-top: 20px;
+  color: #10b981;
+  margin-bottom: 0;
+}
+#phishingFeedback {
+  font-family: Inter;
+  display: none;
+  opacity: 0;
+  height: 0;
+  width: 90%;
+  overflow: hidden;
+  margin: 0px 0px 20px 0px;
+  border: 1px solid #ccc;
+  border-radius: 0.7em;
+  background-color: #f9f9f9;
+  padding: 10px 0px 10px 20px;
+  color: #b32021;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#inbox {
+  font-family: Inter;
+  margin: 0px 0px 20px 0px;
+  width: 90%;
+  border: 1px solid #dfe2e5;
+  border-radius: 0.7em;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#inbox span:hover {
+  text-decoration: underline;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+#verifyButton:hover {
+  transition: filter 0.3s;
+  transition: box-shadow 0.3s;
+  filter: brightness(0.9);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+#startQuizButton:hover {
+  transition: filter 0.3s;
+  transition: box-shadow 0.3s;
+  filter: brightness(0.9);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+quizForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+fieldset {
+  border: 1px solid #dfe2e5;
+  border-radius: 0.7em;
+  width: 90%;
+  margin: 0px 0px 20px 0px;
+  padding: 10px 0px 10px 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

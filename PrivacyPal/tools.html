@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PrivacyPal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Your content goes here -->
+     <div id="toast-container">
+      <div id="toast-message"></div>
+     </div>
+    <header>
+      <div>
+        <h2 id="headerTitle">PrivacyPal</h2>
+      </div>
+      <div>
+        <button
+          onclick="window.location.href = 'index.html';"
+          class="headerButton"
+        >
+          Home
+        </button>
+        <button
+          class="headerButton"
+          style="
+            text-decoration: underline;
+            color: #4035c0;
+            font-size: 16px;
+            font-weight: 600;
+          "
+          id="toolsButton"
+        >
+          Tools
+        </button>
+        <button class="headerButton" id="learnButton" onclick="window.location.href = 'learn.html';">Learn</button>
+        <button class="headerButton" onclick="window.location.href = 'about.html';">About</button>
+      </div>
+    </header>
+    <main>
+      <h1 id="toolsTitle">🔐PrivacyPal Tools</h1>
+      <div id="textEncryptionDecryption">
+        <h2>Text Encryption/Decryption</h2>
+        <p>Encrypt or decrypt your messages using classic ciphers.</p>
+        <form id="encryptionDecryptionForm">
+          <label for="textInput" style="font-weight: bolder">Input Text:</label>
+          <br />
+          <textarea
+            id="textInput"
+            placeholder="Enter text to encrypt or decrypt..."
+          ></textarea>
+          <br />
+          <label id="chooseCipher" for="cipherType" style="font-weight: bolder"
+            >Choose Cipher:</label
+          >
+          <br />
+          <br />
+          <input id="caesarCheck" type="radio" name="cipherType" value="Caesar Cipher" checked />
+          <label for="caesarCipher">Caesar Cipher</label>
+          <input id="rot13Check" type="radio" name="cipherType" value="ROT13" />
+          <label for="ROT13">ROT13</label>
+          <label for="shift">Shift</label>
+          <input type="text" id="shift" value="3" />
+          <br />
+          <button type="button" id="encryptButton">Encrypt</button>
+          <button type="button" id="decryptButton">Decrypt</button>
+          <br />
+          <br />
+          <label for="textInput" style="font-weight: bolder"
+            >Output Text:</label
+          >
+          <br />
+          <p id="outputText">Encrypted or decrypted text will appear here</p>
+          <button id="copyButton">Copy Output</button>
+        </form>
+      </div>
+      <div id="passwordStrengthChecker">
+        <h2>Password Strength Checker</h2>
+        <p>Get immediate feedback on the strength of your password.</p>
+        <form>
+          <label for="passwordInput" style="font-weight: bolder"
+            >Enter Password:</label
+          >
+          <br />
+          <textarea
+            type="password"
+            id="passwordInput"
+            placeholder="Type your password here..."
+          ></textarea>
+          <br />
+          <div id="strengthBarContainer">
+            <div id="strengthBar">
+            </div>
+          </div>
+          <br />
+          <button type="button" id="checkStrengthButton">Check Strength</button>
+          <label for="strengthOutput" style="font-weight: bolder"
+            >Strength:</label
+          >
+          <p id="strengthOutput">Not Entered</p>
+        </form>
+      </div>
+      <div id="passwordGenerator">
+        <h2>Password Generator</h2>
+        <p>Generate strong, random passwords based on your criteria.</p>
+        <form>
+          <label for="passwordLength" style="font-weight: bolder"
+            >Password Length:</label
+          >
+          <p id="passwordLengthValue"></p>
+          <br />
+          <br />
+          <input type="range" id="passwordLength" value="12" max="36" min="10"/>
+          <br />
+          <button type="button" id="generatePasswordButton">
+            Generate Password
+          </button>
+          <br />
+          <br />
+          <label for="generatedPassword" style="font-weight: bolder"
+            >Generated Password:</label
+          >
+          <br />
+          <textarea
+            id="generatedPassword"
+            placeholder="Your generated password will appear here."></textarea>
+        </div>
+    </main>
+    <footer id="footer">
+      <div class="footerContent">
+        <p>© 2025 PrivacyPal. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+    <script src="tools.js"></script>
+  </body>
+</html>

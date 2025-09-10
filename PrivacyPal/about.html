@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PrivacyPal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Your content goes here -->
+    <header>
+      <div>
+        <h2 id="headerTitle">PrivacyPal</h2>
+      </div>
+      <div>
+        <button
+          class="headerButton"
+          id="homeButton"
+          onclick="window.location.href = 'index.html';"
+        >
+          Home
+        </button>
+        <button class="headerButton" id="toolsButton">Tools</button>
+        <button
+          class="headerButton"
+          id="learnButton"
+          onclick="window.location.href = 'learn.html';"
+        >
+          Learn
+        </button>
+        <button
+          class="headerButton"
+          onclick="window.location.href = 'about.html';"
+          style="
+            text-decoration: underline;
+            color: #4035c0;
+            font-size: 16px;
+            font-weight: 600;
+          "
+        >
+          About
+        </button>
+      </div>
+    </header>
+    <main>
+      <div id="aboutContainer">
+        <h1 id="aboutTitle">About PrivacyPal</h1>
+        <h3 id="missionTitle">Our Mission</h3>
+        <p id="privacyPalMission">
+          <span id="privacyPalName">PrivacyPal</span> is your dedicated personal
+          digital security companion. In an increasingly interconnected world,
+          Our mission is to empower individuals, regardless of their technical
+          background, with the knowledge and tools they need to navigate the
+          digital landscape safely and confidently.
+          <br />
+          <br />
+          Through accessible educational resources and easy-to-use practical
+          tools, we aim to demystify digital security and make it achievable for
+          everyone. This project serves as a showase of web front-end design and
+          development, emphasizing user experience and client-side data
+          management.
+          <br />
+          <br />
+        </p>
+        <h3 id="keyTechTitle">Key Technologies</h3>
+        <ul id="keyTechList">
+          <li>
+            HTML5: For structuring all content, ensuring semantic and accessible
+            markup.
+          </li>
+          <li>
+            CSS3: For modern presentation, responsive layouts, and a fluid user
+            experience across all devices.
+          </li>
+          <li>
+            JavaSript (Vanilla JS & jQuery): For all interactive behaviours,
+            dynamic content loading, and the core logic behind the security
+            features (e.g., encryption, password generation). jQuery is used for
+            efficient DOM manipulation.
+          </li>
+          <li>
+            CodeHS Firebase(Firestore Database): To dynamically store and
+            retrieve educational articles, quiz questions, and to demonstrate
+            basic user data interaction by storing quiz scores.
+          </li>
+          <li>
+            Git & Github: Used for robust version control, collaborative project
+            management, and hosting the entier project repository.
+          </li>
+        </ul>
+        <h4 id="getInTouchTitle">Get in Touch</h4>
+        <p id="getInTouchInfo">
+          Have questions, feedback, or just want to say hello? Feel free to
+          reach out!
+        </p>
+        <p id="contactEmail">
+          Email:
+          <a href="mailto:boluadalemo@gmail.com" target="_blank"
+            >boluadalemo@gmail.com</a
+          >
+        </p>
+        <p id="contactWebsite">
+          Website: <a href="index.html">www.privacypal.com</a>
+        </p>
+        <p id="contactGitHub">
+          GitHub:
+          <a
+            href="https://github.com/Badalemo/GoogleDriveCode/tree/master/HTML-CSS/PrivacyPal"
+            target="_blank"
+            >www.github.com/badalemo/privacypal</a
+          >
+        </p>
+      </div>
+    </main>
+    <footer>
+      <div class="footerContent">
+        <p>© 2025 PrivacyPal. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

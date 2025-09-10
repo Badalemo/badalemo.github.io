@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PrivacyPal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Your content goes here -->
+    <header>
+      <div>
+        <h2 id="headerTitle">PrivacyPal</h2>
+      </div>
+      <div>
+        <button
+          onclick="window.location.href = 'index.html';"
+          class="headerButton"
+        >
+          Home
+        </button>
+        <button class="headerButton" id="toolsButton">Tools</button>
+        <button
+          class="headerButton"
+          id="learnButton"
+          style="
+            text-decoration: underline;
+            color: #4035c0;
+            font-size: 16px;
+            font-weight: 600;
+          "
+        >
+          Learn
+        </button>
+        <button class="headerButton" onclick="window.location.href = 'about.html';">About</button>
+      </div>
+    </header>
+    <main>
+      <h1 id="learnTitle">🧠 Awareness Resources</h1>
+      <div id="educationArticlesInfo">
+        <h2>Educational Articles & Infographics</h2>
+        <p>
+          Dive into key cybersecurity topics with easy-to-understand articles.
+        </p>
+        <form>
+            <label for ="articleSelector" style="font-weight: bolder">Select an Article:</label> 
+            <br />
+            <select id="articleSelector">
+                <option
+                    value="" disabled selected>--Select an article--</option>
+                </option>
+              <option value="phishing">Phishing Attacks</option>
+              <option value="passwords">Password Security</option>
+              <option value="social-engineering">Social Engineering</option>
+              <option value="data-privacy">Data Privacy</option>
+              </select>
+        </form>
+        <div id="articleContent">
+          <div id="articleText">
+            Please select an article to read.
+          </div>
+      </div>
+      </div>
+      <div id="interactiveQuizzes">
+        <h2>Interactive Quizzes</h2>
+        <p>
+          Test your knowledge on cybersecurity and digital privacy.</p> 
+          <div id="quizContainer">
+            <p id="quizText">Ready to challenge yourself?</p>
+            <button id="startQuizButton">Start Quiz</button>
+            <div id="formContainer">
+                <form id="quizForm">
+                  <fieldset id="question1">
+                    <h4>What is the primary purpose of Multi-Factor Authentication (MFA)?</h4>
+                    <input type="radio" name="mfa" value="easierToRemember" class="answer1"/>
+                    <label for="easierToRemember">To make passwords easier to easier to remember</label>
+                    <br />
+                    <input type="radio" name="mfa" value="extraLayer" class="answer1"/> 
+                    <label for="extraLayer">To add an extra layer of security beyond just a password</label>
+                    <br />
+                    <input type="radio" name="mfa" value="speedLogin" class="answer1"/> 
+                    <label for="speedLogin">To speed up the login process</label>
+                    <br />
+                    <input type="radio" name="mfa" value="autoBlock" class="answer1">
+                    <label for="autoBlock">To automatically block all suspicious emails.</label>
+                    <div id="answer1"></div>
+                  </fieldset>
+                  <fieldset id="question2">
+                    <h4>Which of the following is the STRONGEST password?</h4>
+                    <input type="radio" name="password" value="answer1" class="answer2"/>
+                    <label for="answer1">Password123</label>
+                    <br />
+                    <input type="radio" name="password" value="answer2" class="answer2">
+                    <label for="answer2">mycatmittens</label>
+                    <br />
+                    <input type="radio" name="password" value="answer3" class="answer2">
+                    <label for="answer3">Gr@ndPa!sH@t_1975</label>
+                    <br />
+                    <input type="radio" name="password" value="answer4" class="answer2">
+                    <label for="answer4">12345678</label>
+                    <div id="answer2"></div>
+                    </fieldset>
+                    <fieldset id="question3">
+                      <h4>You receive and email that looks like it's from your bank, asking you to click a link to 'verify your account immediately.' What is the safest action to take?</h4>
+                      <input type="radio" name="email" value="answer1" class="answer3"/>
+                      <label for="answer1">Click the link to verify your account quickly</label>
+                      <br />
+                      <input type="radio" name="email" value="answer2" class="answer3">
+                      <label for="answer2">Reply to the email asking for more information.</label>
+                      <br />
+                      <input type="radio" name="email" value="answer3" class="answer3">
+                      <label for="answer3">Forward the email to a griend to see if it's legitimate</label>
+                      <br />
+                      <input type="radio" name="email" value="answer4" class="answer3">
+                      <label for="answer4">Delete the email and navigate directly to your bank's official website.</label>
+                      <div id="answer3"></div>
+                      </fieldset>
+                      <fieldset id="question4">
+                        <h4>What is 'malware'?</h4>
+                        <input type="radio" name="malware" value="answer1" class="answer4"/>
+                        <label for="answer1">Software that helps improve computer performance.</label>
+                        <br />
+                        <input type="radio" name="malware" value="answer2" class="answer4">
+                        <label for="answer2">Any software designed to cause damage or gain unauthorized access to a computer system.</label>
+                        <br />
+                        <input type="radio" name="malware" value="answer3" class="answer4">
+                        <label for="answer3">A type of anti-virus program.</label>
+                        <br />
+                        <input type="radio" name="malware" value="answer4" class="answer4">
+                        <label for="answer4">A tool for creating secure backup of your data.</label>
+                        <div id="answer4"></div>
+                      </fieldset>
+                      <fieldset id="question5">
+                        <h4>When is it generally NOT safe to use public Wi-Fi without a VPN?</h4>
+                        <input type="radio" name="wifi" value="answer1" class="answer5">
+                        <label for=""answer1>Checking the weather forecast.</label>
+                        <br />
+                        <input type="radio" name="wifi" value="answer2" class="answer5">
+                        <label for=""answer2>Browsing news article.</label>
+                        <br />
+                        <input type="radio" name="wifi" value="answer3" class="answer5">
+                        <label for="answer3">Logging into your online banking account.</label>
+                        <br />
+                        <input type="radio" name="wifi" value="answer4" class="answer5">
+                        <label for="answer4">Watching a public YouTube video.</label>
+                        <div id="answer5"></div>
+                      </fieldset>
+                      <fieldset id="question6">
+                        <h4>What is the best practice for backing up important data?</h4>
+                        <input type="radio" name="backup" value="answer1" class="answer6">
+                        <label for="answer1">Only store data on your computer's hard drive.</label>
+                        <br />
+                        <input type="radio" name="backup" value="answer2" class="answer6">
+                        <label for="answer2">Save all data to a single USB drive.</label>
+                        <br />
+                        <input type="radio" name="backup" value="answer3" class="answer6">
+                        <label for="answer3">Use the 3-2-1 rule: 3 copies of your data, on 2 different media, with 1 copy off-site.</label>
+                        <br />
+                        <input type="radio" name="backup" value="answer4" class="answer6">
+                        <label for="answer4">Rely solely on cloud storage providers</label>
+                        <div id="answer6"></div>
+                      </fieldset>
+                      <fieldset id="question7">
+                        <h4>What does 'phishing' specifically refer to in cybersecurity?</h4>
+                        <input type="radio" name="phishing" value="answer1" class="answer7">
+                        <label for="answer1">A type of encrypted communication.</label>
+                        <br />
+                        <input type="radio" name="phishing" value="answer2" class="answer7">
+                        <label for="answer2">Using fake websites or emails to trick people into revealing sensitive information.</label>
+                        <br />
+                        <input type="radio" name="phishing" value="answer3" class="answer7">
+                        <label for="answer3">A method for safely sharing files online.</label>
+                        <br />
+                        <input type="radio" name="phishing" value="answer4" class="answer7">
+                        <label for="answer4">The process of creating strong passwords.</label>
+                        <div id="answer7"></div>
+                        </fieldset>
+                        <div id="score"></div>
+                </form>
+            </div>
+            </div>
+      </div>
+      <div id="phishingEmailSim">
+        <h2>Phishing Email Simulator</h2>
+        <p id="phishingIntro">
+            Learn to spot red flags in suspicious emails. Click on elements to reveal explanations.
+        </p>
+        <div id="inbox">
+            <h3>Inbox</h3>
+            <hr />
+            From: <span id="customerSupport" style="color: red;">"Your Bank Customer Support" support@your-bank.co.ru</span>
+            <br />
+            <br />
+            To: <span style="color:black">you@example.com</span>
+            <br />
+            <br />
+            subject: <span id="phishingSubject">URGENT: our Account Has Been Suspended!</span>
+            <br /> 
+            <br />
+            <p id="phishingEmailBody">
+                Dear Valued Customer,
+                <br />
+                <br />
+                We have detected unusual activity on your account, for your security, we have temporarily <em>Suspended your account access</em>
+                <br />
+                <br />
+                To reactivate your account and avoid further disruption, please verify your details by clicking the linke below
+            </p>
+            <div id="verifyButtonContainer">
+            <button id="verifyButton">Verify Your Account Here Immediately</button>
+            </div>
+            <p>
+                If you do not verify your account within 24 hours, it will be permanently closed. Thank you for your cooperation.
+                <br />
+                <br />
+                Sincerely,
+                <br />
+                The "Security" Team <span style="color: red;" id="yourBank">of Your Bank</span>
+            </p>
+        </div>
+        <div id="phishingFeedback"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="footerContent">
+        <p>© 2025 PrivacyPal. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js" defer></script>
+    <script src="learn.js"></script>
+  </body>
+</html>

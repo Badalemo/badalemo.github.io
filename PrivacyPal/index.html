@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PrivacyPal</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Your content goes here -->
+    <header>
+      <div>
+        <h2 id="headerTitle">PrivacyPal</h2>
+      </div>
+      <div>
+        <button
+          class="headerButton"
+          id="homeButton"
+          style="
+            text-decoration: underline;
+            color: #4035c0;
+            font-size: 16px;
+            font-weight: 600;
+          "
+        >
+          Home
+        </button>
+        <button class="headerButton" id="toolsButton">Tools</button>
+        <button class="headerButton" id="learnButton">Learn</button>
+        <button
+          class="headerButton"
+          onclick="window.location.href = 'about.html';"
+        >
+          About
+        </button>
+      </div>
+    </header>
+    <main>
+      <div id="welcomeContainer">
+        <div id="welcomeTextContainer">
+          <h1 id="welcomeTitle">Welcome to PrivacyPal!</h1>
+          <p id="welcomeText">
+            Your personal digital security companion. Empowering you with
+            easy-to-use tools and clear educational content
+          </p>
+        </div>
+        <div id="welcomeButtonContainer">
+          <button id="exploreButton">Explore Tools</button>
+          <button id="learnMoreButton">Learn More</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footerContent">
+        <p>© 2025 PrivacyPal. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
