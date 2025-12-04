@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Oluwaseun Adalemo Practical 9</title>
+  </head>
+  <body>
+    <!-- DEV-HELPER: Menu uses flexbox by default. Resize window to test: <768px stacked, >=1024px horizontal -->
+    <header>
+      <div class="header-bar">
+        <img id="header-logo" src="logo.png" alt="logo" />
+        <ul class="menu">
+          <li><a href="#hero">Hero</a></li>
+          <li><a href="#mission">Mission/Vision</a></li>
+          <li><a href="#skillset">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div id="hero">
+        <div id="hero-text">
+          <h1>I am Bolu Adalemo</h1>
+          <button id="heroCta">Github: badalemo</button>
+        </div>
+      </div>
+      <div id="mainContent">
+        <h1 class="heading">Mission/Vision</h1>
+        <p id="mission">
+          building great systems with a
+          <span class="egg">
+            <button
+              class="egg-trigger"
+              type="button"
+              aria-label="Tap for a surprise"
+            >
+              frontend
+            </button>
+            <output class="egg-popup" aria-live="polite">
+              <img
+                class="egg-emoji"
+                src="https://twemoji.maxcdn.com/v/latest/svg/1f95a.svg"
+                alt="Decorated Easter egg"
+              />
+              <span class="egg-message">You discovered the hidden egg!</span>
+            </output>
+          </span>
+          to match
+        </p>
+
+        <h1 class="heading">Skills</h1>
+        <div id="skillset">
+          <ul class="skills">
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg"
+                  alt="JavaScript"
+                />
+              </div>
+              <div class="skillName">JavaScript</div>
+            </li>
+
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg"
+                  alt="Python"
+                />
+              </div>
+              <div class="skillName">Python</div>
+            </li>
+
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg"
+                  alt="HTML5"
+                />
+              </div>
+              <div class="skillName">HTML</div>
+            </li>
+
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg"
+                  alt="CSS3"
+                />
+              </div>
+              <div class="skillName">CSS</div>
+            </li>
+
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/powershell.svg"
+                  alt="PowerShell"
+                />
+              </div>
+              <div class="skillName">PowerShell</div>
+            </li>
+
+            <li class="skill">
+              <div class="skillIcons">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/windows.svg"
+                  alt="Batch / Windows CMD"
+                />
+              </div>
+              <div class="skillName">BatchScript</div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="contact">
+          <h1 class="heading">Contact Me</h1>
+          <ul>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/bolu-adalemo-68b2792b5/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="textLink"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/Badalemo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="textLink"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div id="resume">
+          <h1 class="heading">Resume</h1>
+          <ul>
+            <li>
+              <a
+                href="https://badalemo.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="textLink"
+                >My Interactive Resume</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-bar">
+        <img
+          id="footer-logo"
+          src="logo.png"
+          alt="logo"
+          style="width: 20px; height: 20px"
+        />
+        <p class="copyright">&copy; 2025 Oluwaseun Adalemo</p>
+        <ul class="menu">
+          <li><a href="#hero">Hero</a></li>
+          <li><a href="#mission">Mission/Vision</a></li>
+          <li><a href="#skillset">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#resume">Resume</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

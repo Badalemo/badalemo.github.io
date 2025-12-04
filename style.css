@@ -1,0 +1,560 @@
+/* Reset to original structure with simplified Easter egg */
+:root {
+  --color-background: #f5f7fa;
+  --color-accent: #1a73e8;
+  --color-alert: #e53935;
+  --color-background-tablet: #e3f2fd;
+  --color-background-desktop: #263238;
+  --color-font-tablet: #263238;
+  --color-font-desktop: #f5f7fa;
+}
+
+/* Reset / base */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background);
+  color: #222;
+  font-family: "Roboto", Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: "Montserrat", "Roboto", Arial, sans-serif;
+}
+.mission,
+.copyright,
+.menu a {
+  font-family: "Merriweather", "Roboto", serif;
+}
+.textLink {
+  color: var(--color-accent);
+}
+
+/* Header / footer */
+.header-bar,
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--color-background);
+}
+.header-bar .brand,
+.header-bar #header-logo,
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+  order: 0;
+}
+
+/* Menu (stacked by default) */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--color-background);
+  border-radius: 1em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  flex: 1 1 100%;
+  order: 99;
+}
+.menu li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+.header-bar .menu a,
+.footer-bar .menu a {
+  display: block;
+  padding: 0.5em 1.2em;
+  border-radius: 1.2em;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Hero / main */
+#logo {
+  border: 3px solid #000;
+  height: 50px;
+  width: 70px;
+  display: inline-block;
+}
+#hero {
+  background: var(--color-accent);
+  border-radius: 10px;
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  margin: 10px 10px 30px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Web_design_in_HTML5.jpg/640px-Web_design_in_HTML5.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#hero:hover {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Web_design_in_HTML5.jpg/640px-Web_design_in_HTML5.jpg");
+  transition: background-image 0.5s ease-in-out;
+}
+#hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.alert {
+  background: var(--color-alert);
+  color: #fff;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin: 1em 0;
+  font-weight: bold;
+}
+#heroCta {
+  background: var(--color-accent);
+  border: none;
+  border-radius: 1em;
+  color: #fff;
+  padding: 15px 32px;
+  cursor: pointer;
+}
+#heroCta:hover {
+  background: var(--color-background);
+  color: var(--color-accent);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+main {
+  flex: 1;
+  background: var(--color-background);
+  padding: 5px 0;
+}
+#mainContent {
+  background: var(--color-accent);
+  color: #fff;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 0.5s, color 0.5s;
+}
+#mainContent:hover {
+  background: var(--color-background);
+  color: var(--color-accent);
+}
+
+/* Easter egg interaction around the mission statement */
+.egg {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.egg-trigger {
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  padding: 0 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.egg:hover .egg-trigger,
+.egg:focus-within .egg-trigger {
+  color: var(--color-accent);
+}
+.egg-trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+.egg-popup {
+  pointer-events: none;
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) translateY(4px);
+  background: #fff;
+  color: #0d1f3c;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  padding: 10px 12px;
+  width: max-content;
+  max-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+.egg-emoji {
+  width: 40px;
+  height: 40px;
+  animation: eggGlow 1.8s ease-in-out infinite;
+}
+.egg-message {
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.3;
+}
+.egg:hover .egg-popup,
+.egg:focus-within .egg-popup {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+@keyframes eggGlow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* --- Skills: compact, stable tiles --- */
+.skills,
+#skillset {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  box-sizing: border-box;
+  max-width: 980px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.skills > .skill,
+#skillset > .skill {
+  box-sizing: border-box;
+  width: 160px;
+  max-width: 200px;
+  padding: 8px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+.skillIcons {
+  width: 64px;
+  height: 64px;
+  padding: 6px;
+  margin: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(0, 0, 0, 0.02)
+  );
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.skillIcons img,
+.skillIcons svg {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
+  border-radius: 6px;
+}
+.skillName {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #09386e;
+}
+
+/* header/menu image constraints */
+.header-bar img,
+.footer-bar img,
+.header-bar .brand img,
+.menu img {
+  box-sizing: border-box;
+  max-width: 48px !important;
+  max-height: 48px !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 4px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+#header-logo {
+  height: 48px !important;
+  max-height: 48px !important;
+  max-width: 140px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  padding: 4px !important;
+  border-radius: 8px !important;
+  display: inline-block;
+}
+
+/* submenu lists visible by default */
+.menu li > ul {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+  z-index: 9999 !important;
+  margin: 6px 0 0 !important;
+  padding: 8px 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.menu li > ul a {
+  display: block !important;
+  color: var(--color-accent) !important;
+  background: transparent !important;
+  padding: 0.35em 0.9em !important;
+  white-space: normal !important;
+}
+
+/* Ensure submenu lists are always visible and readable.
+   Inline/stacked on small screens, absolute dropdown on desktop. */
+.menu li {
+  position: relative;
+}
+
+/* mobile / tablet: keep submenus in the flow */
+@media (max-width: 1023px) {
+  .menu li > ul {
+    position: static;
+    display: block !important;
+    margin: 6px 0 0;
+    padding: 8px 10px;
+    list-style: disc inside;
+    background: transparent;
+    box-shadow: none;
+    min-width: 0;
+  }
+  .menu li > ul li {
+    display: list-item;
+    width: auto;
+  }
+  .menu li > ul a {
+    color: var(--color-accent);
+    display: block;
+    white-space: normal;
+  }
+}
+
+/* tablet: 3 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #skillset,
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    padding: 12px 8px;
+  }
+  body {
+    background: var(--color-background-tablet);
+    color: var(--color-font-tablet);
+  }
+  .header-bar,
+  .footer-bar {
+    padding: 8px 12px;
+  }
+}
+
+/* desktop: horizontal menu; skills in single centered row (no scrollbar) */
+@media (min-width: 1024px) {
+  body {
+    background: var(--color-background-desktop);
+    color: var(--color-font-desktop);
+  }
+  .header-bar,
+  .footer-bar,
+  .menu {
+    background: var(--color-background-desktop);
+  }
+  .header-bar,
+  .footer-bar {
+    padding: 12px 24px;
+  }
+  .header-bar .brand {
+    order: 0;
+    flex: 0 0 auto;
+  }
+  .menu {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 0 10px;
+    border-radius: 1em;
+    box-shadow: none;
+    width: auto;
+    flex: 0 1 auto;
+    order: 1;
+  }
+  .menu li {
+    display: inline-flex;
+    width: auto;
+    margin: 0;
+  }
+  .footer-bar .copyright {
+    order: 2;
+    flex-basis: auto;
+    text-align: center;
+  }
+  /* skills as single centered row */
+  #skillset,
+  .skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 12px;
+    margin: 20px auto;
+    overflow: visible;
+  }
+  .skills > .skill,
+  #skillset > .skill {
+    flex: 0 0 auto;
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .skillIcons {
+    width: 100px;
+    height: 100px;
+  }
+  /* hide scrollbars if any */
+  #skillset,
+  .skills {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #skillset::-webkit-scrollbar,
+  .skills::-webkit-scrollbar {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+}
+
+/* links: inherit color by default, accent on hover */
+.header-bar .menu a,
+.footer-bar .menu a,
+.textLink,
+.menu li > ul a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.header-bar .menu a:hover,
+.footer-bar .menu a:hover,
+.textLink:hover,
+.menu li > ul a:hover,
+.menu li > ul a:focus {
+  color: var(--color-accent) !important;
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+/* submenu: ensure readable contrast on desktop */
+@media (min-width: 1024px) {
+  .menu li > ul a {
+    color: var(--color-font-desktop) !important;
+  }
+  .menu li > ul a:hover {
+    color: var(--color-accent) !important;
+  }
+}
+
+/* restore hover/focus transition for icons and header/menu images */
+.header-bar img:hover,
+.header-bar img:focus,
+.header-bar img:focus-visible,
+.menu img:hover,
+.menu img:focus,
+.menu img:focus-visible,
+.skillIcons:hover,
+.skillIcons:focus,
+.skillIcons:focus-visible {
+  transform: translateY(-3px) scale(1.03) !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12) !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+/* desktop: show submenus as visible dropdowns under each item */
+@media (min-width: 1024px) {
+  .menu li > ul {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    display: block !important;
+    margin: 0;
+    padding: 8px 10px;
+    list-style: none;
+    background: var(--color-background-desktop);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    min-width: 160px;
+    z-index: 60;
+  }
+  .menu li > ul li {
+    width: 100%;
+    display: block;
+  }
+  .menu li > ul a {
+    display: block;
+    padding: 0.35em 0.6em;
+    white-space: normal;
+    color: var(--color-font-desktop);
+  }
+}
