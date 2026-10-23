@@ -1,11 +1,22 @@
+/* ==========================================================================
+   FLAGSHIP MOTION & INTERACTION ENGINE — portfolio-flagship.js
+   Libraries: Three.js (WebGL), GSAP + ScrollTrigger, Lenis Smooth Scroll
+   Includes: Multi-Tab Evidence Switcher, Project Category Filter, 4-Phase
+   Scrollytelling, 3D Tilt, Magnetic Buttons, ACL Simulator & MX Agent
+   ========================================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* 1. LENIS SMOOTH SCROLL & GSAP SCROLLTRIGGER SYNC */
-  gsap.registerPlugin(ScrollTrigger);
+  /* --------------------------------------------------------------------------
+     1. LENIS SMOOTH SCROLL & GSAP SCROLLTRIGGER SYNC
+     -------------------------------------------------------------------------- */
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   let lenis;
-  if (!prefersReducedMotion && typeof Lenis !== 'undefined') {
+  if (!prefersReducedMotion && typeof Lenis !== 'undefined' && typeof gsap !== 'undefined') {
     lenis = new Lenis({
       duration: 1.15,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -19,7 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.ticker.lagSmoothing(0);
   }
 
-  /* 2. REAL-TIME 3D WEBGL NETWORK TOPOLOGY (THREE.JS) */
+  /* --------------------------------------------------------------------------
+     2. REAL-TIME 3D WEBGL NETWORK TOPOLOGY (THREE.JS)
+     -------------------------------------------------------------------------- */
   const canvas = document.getElementById('webgl-canvas');
   if (canvas && !prefersReducedMotion && typeof THREE !== 'undefined') {
     const scene = new THREE.Scene();
@@ -38,15 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
       color: 0x38bdf8,
       wireframe: true,
       transparent: true,
-      opacity: 0.08,
+      opacity: 0.075,
     });
     const wireMesh = new THREE.Mesh(icoGeo, wireMat);
     group.add(wireMesh);
 
-    const particlesCount = 160;
+    const particlesCount = 180;
     const posArray = new Float32Array(particlesCount * 3);
     for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 42;
+      posArray[i] = (Math.random() - 0.5) * 44;
     }
     const partGeo = new THREE.BufferGeometry();
     partGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -68,9 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animateWebGL = () => {
       requestAnimationFrame(animateWebGL);
-      wireMesh.rotation.y += 0.0015;
-      wireMesh.rotation.x += 0.0008;
-      partMesh.rotation.y -= 0.0007;
+      wireMesh.rotation.y += 0.0014;
+      wireMesh.rotation.x += 0.0007;
+      partMesh.rotation.y -= 0.0006;
 
       group.rotation.y += (mouseX * 0.35 - group.rotation.y) * 0.04;
       group.rotation.x += (mouseY * 0.25 - group.rotation.x) * 0.04;
@@ -86,36 +99,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 3. KINETIC TYPOGRAPHY & CINEMATIC SCROLLYTELLING (GSAP) */
+  /* --------------------------------------------------------------------------
+     3. KINETIC TYPOGRAPHY & 4-PHASE CINEMATIC SCROLLYTELLING (GSAP)
+     -------------------------------------------------------------------------- */
   if (!prefersReducedMotion && typeof gsap !== 'undefined') {
     gsap.from('.word-reveal', {
       yPercent: 115,
       rotateZ: 3,
       opacity: 0,
-      duration: 1.1,
-      stagger: 0.12,
+      duration: 1.05,
+      stagger: 0.11,
       ease: 'power4.out',
-      delay: 0.15,
+      delay: 0.12,
     });
 
     gsap.from('.reveal-up', {
-      y: 30,
+      y: 28,
       opacity: 0,
-      duration: 0.9,
-      stagger: 0.12,
+      duration: 0.85,
+      stagger: 0.1,
       ease: 'power3.out',
-      delay: 0.45,
+      delay: 0.4,
     });
 
     gsap.utils.toArray('.bento-tile, .evidence-panel').forEach((tile) => {
       gsap.from(tile, {
         scrollTrigger: {
           trigger: tile,
-          start: 'top 88%',
+          start: 'top 89%',
         },
-        y: 45,
+        y: 40,
         opacity: 0,
-        duration: 0.85,
+        duration: 0.8,
         ease: 'power3.out',
       });
     });
@@ -132,8 +147,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const linkTrunk2 = document.getElementById('link-trunk2');
       const linkIsp = document.getElementById('link-isp');
       const linkV30 = document.getElementById('link-v30');
+      const linkV99 = document.getElementById('link-v99');
 
-      [linkTrunk1, linkTrunk2, linkIsp, linkV30].forEach((l) => {
+      [linkTrunk1, linkTrunk2, linkIsp, linkV30, linkV99].forEach((l) => {
         if (l) {
           l.setAttribute('stroke', '#334155');
           l.setAttribute('stroke-width', '3');
@@ -141,20 +157,26 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (stepIndex === 1) {
-        stageStatus.textContent = 'STAGE 01 // 802.1Q VLAN SEGMENTATION & LACP TRUNKS';
-        stageCaption.textContent = 'VLANs 10, 20, 30, and 99 are logically isolated across SW1 and SW2 distribution trunks.';
+        stageStatus.textContent = 'PHASE 01 // 802.1Q VLAN SEGMENTATION & LACP TRUNKS';
+        stageCaption.textContent = 'VLANs 10 (Eng), 20 (HR/SQL), 30 (Guest), and 99 (IT Mgmt) are isolated across SW1 and SW2 distribution trunks.';
         linkTrunk1?.setAttribute('stroke', '#38bdf8');
         linkTrunk2?.setAttribute('stroke', '#38bdf8');
       } else if (stepIndex === 2) {
-        stageStatus.textContent = 'STAGE 02 // OSPF AREA 0 & VLSM SUBNETTING';
-        stageCaption.textContent = 'R1-Core and R2-Edge exchange VLSM routes via OSPF Process 10 with passive-interface default enabled.';
+        stageStatus.textContent = 'PHASE 02 // OSPFv2 AREA 0 & VLSM 78% CONSERVATION';
+        stageCaption.textContent = 'R1-Core and R2-Edge exchange VLSM routes (/26, /27, /28, /30) via OSPF Process 10 with passive-interface default.';
         linkIsp?.setAttribute('stroke', '#22c55e');
         linkIsp?.setAttribute('stroke-width', '4');
       } else if (stepIndex === 3) {
-        stageStatus.textContent = 'STAGE 03 // EXTENDED ACL PERIMETER ENFORCEMENT';
+        stageStatus.textContent = 'PHASE 03 // EXTENDED ACL PERIMETER & SSHv2 LOCK';
         stageCaption.textContent = 'Inbound Extended ACL on Gi0/0/0.30 blocks Guest VLAN 30 from probing HR (VLAN 20) or IT Mgmt (VLAN 99).';
         linkV30?.setAttribute('stroke', '#f43f5e');
         linkV30?.setAttribute('stroke-width', '4');
+      } else if (stepIndex === 4) {
+        stageStatus.textContent = 'PHASE 04 // SYSTEMS, AD DS, DOCKER VPN & PROD WEB';
+        stageCaption.textContent = 'VLAN 99 Admin plane manages Linux (oadalemo), Windows AD DS/GPO, Docker Gluetun VPN, AFACS.org & Foodeal.';
+        linkV99?.setAttribute('stroke', '#a855f7');
+        linkV99?.setAttribute('stroke-width', '4');
+        linkIsp?.setAttribute('stroke', '#38bdf8');
       }
     };
 
@@ -162,19 +184,63 @@ document.addEventListener('DOMContentLoaded', () => {
       const stepNum = parseInt(step.getAttribute('data-step'), 10);
       ScrollTrigger.create({
         trigger: step,
-        start: 'top 60%',
-        end: 'bottom 40%',
+        start: 'top 62%',
+        end: 'bottom 38%',
         onEnter: () => updateTopologyStage(stepNum),
         onEnterBack: () => updateTopologyStage(stepNum),
       });
     });
   }
 
-  /* 4. CUSTOM CURSOR, MAGNETIC MICRO-INTERACTIONS & 3D TACTILE TILT */
+  /* --------------------------------------------------------------------------
+     4. MULTI-TAB EVIDENCE LAB & PROJECT CATEGORY FILTERING
+     -------------------------------------------------------------------------- */
+  const evTabs = document.querySelectorAll('.ev-tab');
+  const evPanes = document.querySelectorAll('.ev-pane');
+
+  evTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const targetId = tab.getAttribute('data-tab');
+      evTabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      evPanes.forEach((p) => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) targetPane.classList.add('active');
+    });
+  });
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      projectItems.forEach((item) => {
+        const cats = item.getAttribute('data-category') || '';
+        if (filter === 'all' || cats.includes(filter)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* --------------------------------------------------------------------------
+     5. CUSTOM CURSOR, MAGNETIC MICRO-INTERACTIONS & 3D TACTILE TILT
+     -------------------------------------------------------------------------- */
   const cursorDot = document.getElementById('cursor-dot');
   const cursorRing = document.getElementById('cursor-ring');
 
-  if (cursorDot && cursorRing && !prefersReducedMotion) {
+  if (cursorDot && cursorRing && !prefersReducedMotion && typeof gsap !== 'undefined') {
     window.addEventListener('mousemove', (e) => {
       gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.05 });
       gsap.to(cursorRing, { x: e.clientX, y: e.clientY, duration: 0.22, ease: 'power2.out' });
@@ -186,9 +252,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion && typeof gsap !== 'undefined') {
     document.querySelectorAll('.magnetic').forEach((btn) => {
-      const strength = parseFloat(btn.getAttribute('data-strength') || '20');
+      const strength = parseFloat(btn.getAttribute('data-strength') || '18');
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width - 0.5) * strength;
@@ -208,12 +274,12 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
 
-        const rotateY = ((x / rect.width) - 0.5) * 6;
-        const rotateX = ((y / rect.height) - 0.5) * -6;
+        const rotateY = ((x / rect.width) - 0.5) * 5;
+        const rotateX = ((y / rect.height) - 0.5) * -5;
         gsap.to(card, {
           rotateX,
           rotateY,
-          transformPerspective: 900,
+          transformPerspective: 950,
           duration: 0.35,
           ease: 'power2.out',
         });
@@ -225,7 +291,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* 5. LIVE INTERACTIVE ACL & WILDCARD PACKET SIMULATOR */
+  /* --------------------------------------------------------------------------
+     6. LIVE INTERACTIVE ACL & WILDCARD PACKET SIMULATOR + CLIPBOARD
+     -------------------------------------------------------------------------- */
   const simRun = document.getElementById('sim-run');
   const simSrc = document.getElementById('sim-src');
   const simDst = document.getElementById('sim-dst');
@@ -238,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (src === 'guest' && dst === 'hr') {
         simOutput.className = 'sim-result deny';
-        simOutput.innerHTML = '<strong>[ACL DROP // DENIED]</strong> Matched ACE <code>10 deny ip 172.16.10.96 0.0.0.31 172.16.10.64 0.0.0.31 log</code> inbound on <code>Gi0/0/0.30</code>. Guest Wi-Fi cannot access HR/Finance.';
+        simOutput.innerHTML = '<strong>[ACL DROP // DENIED]</strong> Matched ACE <code>10 deny ip 172.16.10.96 0.0.0.31 172.16.10.64 0.0.0.31 log</code> inbound on <code>Gi0/0/0.30</code>. Guest Wi-Fi cannot access HR/Finance SQL servers.';
       } else if (src === 'guest' && dst === 'ssh') {
         simOutput.className = 'sim-result deny';
         simOutput.innerHTML = '<strong>[ACL DROP // DENIED]</strong> Blocked by both <code>RESTRICT-GUEST</code> (ACE 20) and VTY <code>access-class VTY-ADMIN-ONLY</code>. Unauthorized SSH attempt logged.';
@@ -255,17 +323,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const copyBtn = document.getElementById('copy-cli');
-  const cliCode = document.getElementById('cli-code');
-  if (copyBtn && cliCode) {
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(cliCode.innerText);
-      copyBtn.textContent = 'Copied ✓';
-      setTimeout(() => { copyBtn.textContent = 'Copy CLI'; }, 2000);
+  document.querySelectorAll('.btn-copy').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-copy-target');
+      const codeEl = document.getElementById(targetId);
+      if (!codeEl) return;
+      const temp = document.createElement('textarea');
+      temp.value = codeEl.innerText;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+      const original = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      setTimeout(() => { btn.textContent = original; }, 2000);
     });
-  }
+  });
 
-  /* 6. AI / MACHINE EXPERIENCE (MX) COMMAND PALETTE */
+  /* --------------------------------------------------------------------------
+     7. AI / MACHINE EXPERIENCE (MX) COMMAND PALETTE
+     -------------------------------------------------------------------------- */
   const modal = document.getElementById('agent-modal');
   const trigger = document.getElementById('cmd-trigger');
   const closeBtn = document.getElementById('agent-close');
@@ -292,11 +369,36 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const responses = {
-    goal: `> WORKSHEET SECTION 01: CAREER GOAL & SKILL AREA\n• Career Goal: Systems & Network Security Administrator.\n• Core Skill Area: Enterprise Networking & Perimeter Defense (OSPF, VLSM, 802.1Q VLANs, Extended ACLs).\n• Progression: Evolved from basic home router port-forwarding to architecting multi-subnet Cisco IOS topologies with least-privilege access control.`,
-    aha: `> WORKSHEET SECTION 04: SIGNIFICANT LEARNING MOMENT ("AHA!" BREAKTHROUGH)\n• Realized why stateless Extended ACLs must be placed inbound closest to the traffic source (Gi0/0/0.30 in) rather than outbound.\n• Transitioned from memorizing wildcard subtraction to understanding binary 0 (match) and 1 (ignore) bit-level inspection.`,
-    why: `> WORKSHEET SECTION 05: ENGINEERING ANALYSIS\n1. passive-interface default: Prevents OSPF Hello packets from leaking onto access VLANs where an attacker could spoof a neighbor adjacency.\n2. VLSM (/26, /27, /28, /30): Conserves 78% of IPv4 address space compared to flat /24 subnets.\n3. VTY SSH + access-class: Eliminates cleartext Telnet and restricts router management exclusively to VLAN 99 (172.16.99.0/28).`,
-    business: `> WORKSHEET SECTION 06: BUSINESS BENEFIT\n• Blast-Radius Containment: Guest Wi-Fi cannot laterally probe HR/Finance servers.\n• High Availability: Dynamic OSPF routing + LACP EtherChannel eliminate single points of cable failure.\n• Audit Compliance: Explicit ACL logging ("log") provides forensic visibility into blocked packets.`,
-    json: `> MACHINE EXPERIENCE (MX) STRUCTURED AGENT PAYLOAD:\n{\n  "candidate": "Oluwaseun (Bolu) Adalemo",\n  "program": "NSCC IT Systems Management & Security",\n  "artifact": "PPIT 2 Task C Portfolio Work Sample",\n  "skillsVerified": ["OSPFv2", "VLSM", "802.1Q Trunking", "Extended ACLs", "SSHv2 Hardening"],\n  "wasteReductionIPv4": "78%"\n}`
+    goal: `> WORKSHEET ITEM 01 & 02: CAREER GOAL & CORE SKILL AREA
+• Career Goal: Systems & Network Security Administrator (Bateman, 2013).
+• Core Skill Area: Enterprise Networking, Systems Administration & Perimeter Defense (Rouse, n.d.).
+• Real-World Synthesis: Unites NSCC Cisco IOS/Linux/Windows Server mastery with production SSH & SQL administration for AFACS.org and Foodeal.`,
+    curriculum: `> NSCC IT SYSTEMS MANAGEMENT & SECURITY CURRICULUM + CVE RESEARCH
+• Networking: OSPFv2 (passive-interface default), VLSM (78% IPv4 savings), 802.1Q Router-on-a-Stick, LACP EtherChannel, STP, Extended ACLs, SSHv2 VTY hardening.
+• Systems Admin: Linux CLI (user: oadalemo, systemd, Bash, SSH hardening) & Windows Server (Active Directory Domain Services, GPOs, DNS, DHCP).
+• Cybersecurity Research: Investigated Cisco Catalyst SD-WAN Manager API flaw (CVE-2026-76504) and authored management-plane shielding ACLs.`,
+    projects: `> PRODUCTION FULL-STACK, SYSTEMS & ENTREPRENEURSHIP PORTFOLIO
+1. AFACS.org: Lead Developer managing production servers via SSH, SQL databases, PHP/Node.js backend, and full UI/UX updates.
+2. Foodeal: Engineered the backend membership program, user settings API, and relational SQL schema.
+3. Express Your Essence (E.Y.E): Co-founded with Jordane Foffe; built with Shopify CLI & Liquid; won 2nd Place at DBBSA Pitch Competition (Mar 2026) & completed Dal Innovates Collide Validate (Mar 2026).
+4. Additional Apps: Spotify Family Manager (Firebase Auth/DB), PrivacyPal Suite, and Bube's Food Rush.`,
+    aha: `> WORKSHEET ITEM 05 & 06: THE "AHA!" BREAKTHROUGH & CRITICAL ANALYSIS
+• Breakthrough: Visualized the stateless router packet pipeline—placing Extended ACLs inbound closest to the source (Gi0/0/0.30 in) and mastering binary wildcard inversion (0 = match, 1 = ignore).
+• Future Hardening: Upgrade stateless ACLs to a Zone-Based Policy Firewall (ZBPF) and enable DHCP Snooping + Dynamic ARP Inspection (DAI).`,
+    tutoring: `> TECHNICAL MENTORSHIP, SELF-HOSTED LAB & COMMUNITY LEADERSHIP
+• Python Guides & Tutoring: Published Notion Python guides (2,600+ views, 860+ downloads) and provide 1-on-1 CS/coding tutoring in Halifax.
+• Home Media & VPN Server: Docker stack (Jellyfin, Sonarr, Prowlarr, qBittorrent) routed through a Gluetun VPN kill-switch and Tailscale mesh.
+• Community & Awards: BGC Greater Halifax Clubs (Spryfield) Program Staff, Parker Street Food Bank volunteer, Halifax West CS Award (2025), 3rd Place JA Nigeria.`,
+    json: `> MACHINE EXPERIENCE (MX) STRUCTURED AGENT PAYLOAD:
+{
+  "candidate": "Oluwaseun (Bolu) Adalemo",
+  "institution": "NSCC Institute of Technology (Halifax, NS)",
+  "program": "IT Systems Management & Security",
+  "productionSystems": ["afacs.org (SSH/SQL/Node/PHP/UI)", "Foodeal (Membership & Settings Backend)", "E.Y.E (Shopify CLI/Liquid)"],
+  "infrastructure": ["Cisco IOS OSPF/VLSM/ACL", "Linux (oadalemo)", "Windows Server AD DS/GPO", "Docker + Gluetun VPN + Tailscale"],
+  "cveResearch": "CVE-2026-76504 (Cisco Catalyst SD-WAN Manager API)",
+  "honors": ["2nd Place DBBSA Pitch 2026", "Dal Innovates Collide Validate 2026", "2,600+ Python Guide Views"]
+}`
   };
 
   document.querySelectorAll('.prompt-chip').forEach((chip) => {
