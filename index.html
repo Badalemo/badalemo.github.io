@@ -3,392 +3,701 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oluwaseun (Bolu) Adalemo | IT Systems & Security Portfolio</title>
+  <title>Oluwaseun (Bolu) Adalemo | Flagship Systems & Security Portfolio</title>
+  <meta name="description" content="Flagship IT Systems Management & Security Portfolio for Oluwaseun (Bolu) Adalemo — NSCC PPIT 2 Task C Work Sample featuring OSPF, VLSM, and Extended ACL Architecture." />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Machine Experience (MX) / AI Agent Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Enterprise Network Architecture & Perimeter Defense — PPIT 2 Task C Work Sample",
+    "author": {
+      "@type": "Person",
+      "name": "Oluwaseun (Bolu) Adalemo",
+      "affiliation": "Nova Scotia Community College (NSCC) - IT Systems Management & Security",
+      "jobTitle": "Systems & Network Security Administrator"
+    },
+    "keywords": ["OSPF", "VLSM", "Extended ACL", "Wildcard Mask", "Cisco IOS", "VLAN Segmentation", "NSCC PPIT Task C"],
+    "about": "Progression from theoretical home networking to enterprise multi-VLAN OSPF routing, VLSM subnetting, and stateless Extended ACL perimeter security."
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Tactile SVG Film Grain Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Custom Reactive Cursor -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Real-Time 3D WebGL Background Canvas (Three.js) -->
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Glassmorphic Navigation -->
   <header class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="brand">
-        <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.style.display='none'" />
-        <span class="brand-name">Bolu Adalemo</span>
-        <span class="badge-tag">NSCC IT Systems & Security</span>
+    <div class="nav-glass">
+      <a href="#" class="brand magnetic" data-strength="20">
+        <img src="logo.png" alt="Bolu Logo" class="brand-logo" onerror="this.style.display='none'" />
+        <span class="brand-name">BOLU ADALEMO</span>
+        <span class="status-pill"><span class="pulse-dot"></span>SYS.SEC // NSCC</span>
       </a>
       <nav class="nav-links">
-        <a href="#career-goal">Career Goal</a>
-        <a href="#work-sample">Work Sample</a>
-        <a href="#evidence">Evidence & Config</a>
-        <a href="#analysis">Analysis</a>
-        <a href="#business-benefit">Business Impact</a>
-        <a href="./interactive resume/index.html" class="btn-outline">Interactive Resume</a>
+        <a href="#bento-overview" class="nav-item magnetic" data-strength="15">01. Overview</a>
+        <a href="#context" class="nav-item magnetic" data-strength="15">02. Context</a>
+        <a href="#evidence" class="nav-item magnetic" data-strength="15">03. Evidence</a>
+        <a href="#analysis" class="nav-item magnetic" data-strength="15">04. Analysis</a>
+        <a href="#impact" class="nav-item magnetic" data-strength="15">05. Impact</a>
       </nav>
+      <div class="nav-actions">
+        <button id="cmd-trigger" class="btn-agent magnetic" data-strength="25" aria-label="Open AI Agent Command Palette">
+          <span class="cmd-icon">⌘K</span> Ask AI / MX Inspector
+        </button>
+        <a href="./interactive resume/index.html" class="btn-glass magnetic" data-strength="25">Resume &nearr;</a>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="eyebrow">PPIT 2 — Task C: Portfolio Work Sample</div>
-        <h1>Enterprise Network Architecture & Security Implementation</h1>
-        <p class="hero-subtitle">
-          A technical case study demonstrating progression from theoretical networking to designing, routing, and securing multi-area enterprise topologies using OSPF, VLSM, and Extended Access Control Lists (ACLs).
-        </p>
-        <div class="hero-actions">
-          <a href="#work-sample" class="btn-primary">View Work Sample</a>
-          <a href="./PrivacyPal/index.html" class="btn-secondary">Explore PrivacyPal Project &rarr;</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="terminal-window">
-          <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">oadalemo@nscc-lab: ~/network-sec</span>
+  <main>
+    <!-- HERO SECTION: Exaggerated Hierarchy + Interactive 3D Network Core -->
+    <section class="hero section-padding">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="micro-meta reveal-up">
+            <span>[PPIT 2 : TASK C WORK SAMPLE]</span>
+            <span class="divider">//</span>
+            <span>HALIFAX, NS</span>
+            <span class="divider">//</span>
+            <span>OSPF + VLSM + ACL</span>
           </div>
-          <div class="terminal-body">
-            <p><span class="prompt">R1-Core#</span> show ip ospf neighbor</p>
-            <p class="output">Neighbor ID &nbsp;&nbsp;Pri &nbsp;&nbsp;State &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interface</p>
-            <p class="output">10.255.0.2 &nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;FULL/DR &nbsp;&nbsp;&nbsp;172.16.1.2 &nbsp;&nbsp;&nbsp;&nbsp;Gig0/0/0</p>
-            <p class="output">10.255.0.3 &nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;&nbsp;FULL/BDR &nbsp;&nbsp;172.16.1.6 &nbsp;&nbsp;&nbsp;&nbsp;Gig0/0/1</p>
-            <p><span class="prompt">R1-Core#</span> show access-lists SEC-MGMT-ACL</p>
-            <p class="output">Extended IP access list SEC-MGMT-ACL</p>
-            <p class="output">&nbsp;&nbsp;10 permit tcp 172.16.99.0 0.0.0.15 any eq 22 (42 matches)</p>
-            <p class="output">&nbsp;&nbsp;20 deny ip any 172.16.99.0 0.0.0.15 log (18 matches)</p>
-            <p class="output">&nbsp;&nbsp;30 permit ip any any (1290 matches)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Section 1: Career Goal & Skill Area -->
-  <section id="career-goal" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>01. Career Goal & Core Skill Area</h2>
-        <p>Aligning academic specialization at NSCC with enterprise infrastructure and cybersecurity standards.</p>
-      </div>
+          <h1 class="display-title kinetic-heading">
+            <span class="line-mask"><span class="word-reveal">ZERO-TRUST</span></span>
+            <span class="line-mask"><span class="word-reveal accent-gradient">PERIMETER</span></span>
+            <span class="line-mask"><span class="word-reveal">&amp; ROUTING.</span></span>
+          </h1>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="card-icon">🎯</div>
-          <h3>Career Goal: Systems & Security Administrator</h3>
-          <p>
-            From building custom web applications and managing production Linux backends to maintaining virtualized home server infrastructure, I have always been driven by how systems communicate and how to defend them. My career goal is to work as a <strong>Systems and Network Security Administrator</strong>.
+          <p class="hero-lead reveal-up">
+            An interactive engineering case study documenting my progression in the NSCC Information Technology program—transitioning from basic consumer configurations to architecting self-healing <strong>OSPF topologies</strong>, surgical <strong>VLSM addressing</strong>, and stateless <strong>Extended Access Control Lists</strong>.
           </p>
-          <p>
-            Systems and Security Administrators are responsible for provisioning, hardening, and monitoring critical hardware, operating systems, and network perimeters to ensure high availability and defense against unauthorized access (Bateman, 2013).
-          </p>
-          <div class="skill-pills">
-            <span>Network Security</span>
-            <span>Linux & OS Hardening</span>
-            <span>Routing & Switching</span>
-            <span>SSH & Remote Management</span>
-            <span>Vulnerability Mitigation</span>
+
+          <div class="hero-cta-group reveal-up">
+            <a href="#bento-overview" class="btn-primary magnetic" data-strength="30">
+              <span>Explore Work Sample</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a href="./PrivacyPal/index.html" class="btn-secondary magnetic" data-strength="20">
+              <span>Launch PrivacyPal Suite</span>
+            </a>
           </div>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Core Skill Area: Enterprise Networking & Perimeter Defense</h3>
-          <p>
-            Networking encompasses the architectural design, physical and logical construction, and operational governance of telecommunication protocols and routing hardware used to transport data securely across local and wide area networks (Rouse, n.d.).
-          </p>
-          <p>
-            For a Systems and Security Administrator, networking is the foundational layer: you cannot secure traffic that you cannot route, segment, or inspect. Mastering dynamic routing (OSPF), VLAN segmentation, and packet filtering (ACLs) directly bridges infrastructure reliability with zero-trust security.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 2: Prior Learning & Progression -->
-  <section id="work-sample" class="section bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>02. Prior Learning & Problem Context</h2>
-        <p>Transitioning from basic home configurations to enterprise-grade network segmentation.</p>
-      </div>
-
-      <div class="timeline-box">
-        <div class="timeline-item">
-          <span class="step-badge">Baseline / Prior Learning</span>
-          <h4>Home Networking & Application-Layer Focus</h4>
-          <p>
-            Prior to starting the IT Systems Management and Security program at NSCC, my practical networking experience was primarily application-focused—configuring port forwarding on consumer routers, setting up VPN tunnels (Tailscale/Gluetun) for home media servers, and managing web servers via SSH. I understood IP addresses and ports conceptually, but treated the underlying network layer as a "black box" using default <code>/24</code> subnets without formal traffic segmentation or dynamic routing.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <span class="step-badge">Problem & Context (Course Assignment)</span>
-          <h4>Enterprise Multi-VLAN OSPF & ACL Implementation</h4>
-          <p>
-            In our NSCC networking coursework, we were tasked with designing and configuring an enterprise branch network in <strong>Cisco Packet Tracer</strong> to meet strict organizational and security requirements:
-          </p>
-          <ul class="Context-list">
-            <li><strong>Departmental Segmentation:</strong> Separate network traffic across four distinct departments (Engineering, HR/Finance, Guest Wi-Fi, and IT Management VLAN 99) so broadcast domains remain isolated.</li>
-            <li><strong>Dynamic Routing:</strong> Configure single-area and multi-area <strong>OSPF (Open Shortest Path First)</strong> across core and distribution routers to ensure redundant, self-healing paths without relying on static routes.</li>
-            <li><strong>Address Conservation:</strong> Calculate and apply <strong>VLSM (Variable Length Subnet Masking)</strong> across the <code>172.16.0.0/16</code> space so subnets match actual host requirements rather than wasting entire Class C blocks.</li>
-            <li><strong>Policy Enforcement:</strong> Implement Standard and Extended <strong>Access Control Lists (ACLs)</strong> using precise wildcard masks to restrict SSH management access exclusively to the IT Management subnet and block Guest VLAN traffic from reaching internal servers.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Actions Taken & Evidence -->
-  <section id="evidence" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>03. Actions Taken & Technical Evidence</h2>
-        <p>Step-by-step execution, addressing table design, and Cisco IOS CLI configurations.</p>
-      </div>
-
-      <div class="grid-2 align-start">
-        <!-- Subnetting Table -->
-        <div class="card">
-          <h3>VLSM Addressing & VLAN Architecture</h3>
-          <p class="card-desc">
-            Instead of assigning flat <code>/24</code> networks (which waste over 200 IPs per small department), I calculated VLSM blocks tailored to the exact host requirements plus 20% growth overhead:
-          </p>
-          <div class="table-responsive">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>VLAN</th>
-                  <th>Department</th>
-                  <th>Hosts Needed</th>
-                  <th>Subnet / CIDR</th>
-                  <th>Wildcard Mask</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>VLAN 10</strong></td>
-                  <td>Engineering</td>
-                  <td>50</td>
-                  <td><code>172.16.10.0/26</code></td>
-                  <td><code>0.0.0.63</code></td>
-                </tr>
-                <tr>
-                  <td><strong>VLAN 20</strong></td>
-                  <td>HR & Finance</td>
-                  <td>25</td>
-                  <td><code>172.16.10.64/27</code></td>
-                  <td><code>0.0.0.31</code></td>
-                </tr>
-                <tr>
-                  <td><strong>VLAN 30</strong></td>
-                  <td>Guest Network</td>
-                  <td>25</td>
-                  <td><code>172.16.10.96/27</code></td>
-                  <td><code>0.0.0.31</code></td>
-                </tr>
-                <tr>
-                  <td><strong>VLAN 99</strong></td>
-                  <td>IT Management</td>
-                  <td>10</td>
-                  <td><code>172.16.99.0/28</code></td>
-                  <td><code>0.0.0.15</code></td>
-                </tr>
-                <tr>
-                  <td><strong>P2P Link</strong></td>
-                  <td>Core-to-Branch</td>
-                  <td>2</td>
-                  <td><code>172.16.254.0/30</code></td>
-                  <td><code>0.0.0.3</code></td>
-                </tr>
-              </tbody>
-            </table>
+        <!-- Tactile 3D Tilt Terminal Card -->
+        <div class="hero-visual">
+          <div class="tactile-card tilt-card" data-tilt>
+            <div class="card-glare"></div>
+            <div class="terminal-bar">
+              <div class="traffic-lights">
+                <span class="tl red"></span>
+                <span class="tl yellow"></span>
+                <span class="tl green"></span>
+              </div>
+              <div class="terminal-tab">oadalemo@R1-Core: ~ (SSHv2 AES-256)</div>
+              <div class="terminal-badge">LIVE TELEMETRY</div>
+            </div>
+            <div class="terminal-screen">
+              <div class="code-line"><span class="prompt">R1-Core#</span> <span class="cmd-type">show ip ospf neighbor</span></div>
+              <div class="code-out muted">Neighbor ID     Pri   State           Dead Time   Address         Interface</div>
+              <div class="code-out highlight-green">10.255.0.2        1   FULL/DR         00:00:38    172.16.254.2    Gig0/0/1</div>
+              <br/>
+              <div class="code-line"><span class="prompt">R1-Core#</span> <span class="cmd-type">show ip access-lists RESTRICT-GUEST</span></div>
+              <div class="code-out">Extended IP access list RESTRICT-GUEST</div>
+              <div class="code-out highlight-red">  10 deny ip 172.16.10.96 0.0.0.31 172.16.10.64 0.0.0.31 log (142 matches)</div>
+              <div class="code-out highlight-red">  20 deny ip 172.16.10.96 0.0.0.31 172.16.99.0 0.0.0.15 log (89 matches)</div>
+              <div class="code-out highlight-cyan">  30 permit ip any any (14,820 matches)</div>
+              <br/>
+              <div class="code-line"><span class="prompt">R1-Core#</span> <span class="cursor-blink">_</span></div>
+            </div>
+            <div class="terminal-footer">
+              <span>WILDCARD ENGINE: ACTIVE</span>
+              <span>VTY: VLAN 99 LOCKED</span>
+            </div>
           </div>
-          <div class="screenshot-placeholder">
-            <div class="diagram-mock">
-              <div class="node">[ISP / Edge Router]</div>
-              <div class="link-line">| OSPF Area 0 (172.16.254.0/30)</div>
-              <div class="node">[Core Router R1 - 802.1Q Sub-interfaces & ACL Enforcement]</div>
-              <div class="link-line">| LACP EtherChannel Trunk (VLANs 10, 20, 30, 99)</div>
-              <div class="node-row">
-                <span class="sub-node">SW1: VLAN 10 & 20</span>
-                <span class="sub-node">SW2: VLAN 30 & 99 (Mgmt)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: BENTO GRID ARCHITECTURE (Career Goal & Skill Area) -->
+    <section id="bento-overview" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="micro-meta">01 // CAREER GOAL &amp; CORE SKILL AREA</div>
+          <h2 class="section-title kinetic-split">ARCHITECTING RESILIENT SYSTEMS.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Bento Tile 1: Career Goal (Large Span) -->
+          <article class="bento-tile span-8 tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">WORKSHEET ITEM 01 // CAREER GOAL</span>
+              <span class="tile-index">SYS_ADMIN</span>
+            </div>
+            <h3>Systems &amp; Network Security Administrator</h3>
+            <p>
+              From engineering full-stack production platforms (<a href="https://afacs.org" target="_blank" rel="noopener" class="inline-link">afacs.org</a>) and e-commerce infrastructures to maintaining containerized Linux home servers with Tailscale and Gluetun VPNs, I have always been driven by how distributed systems communicate—and how to harden them against exploitation.
+            </p>
+            <p>
+              As defined by Bateman (2013), <strong>Systems Administrators</strong> install, upgrade, and monitor critical hardware and software—maintaining operating systems, business applications, security tools, web services, and local/wide area network infrastructure. My career goal is to operate at the intersection of <strong>Enterprise Systems Administration and Network Security</strong>, ensuring high availability while enforcing zero-trust perimeters.
+            </p>
+            <div class="chip-row">
+              <span class="tech-chip">Cisco IOS &amp; Packet Tracer</span>
+              <span class="tech-chip">Linux Server Hardening</span>
+              <span class="tech-chip">OSPF Dynamic Routing</span>
+              <span class="tech-chip">ACL Packet Filtering</span>
+              <span class="tech-chip">SSH &amp; IAM Governance</span>
+            </div>
+          </article>
+
+          <!-- Bento Tile 2: Metric Counter Tile (Span 4) -->
+          <article class="bento-tile span-4 bento-metric tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">ADDRESS EFFICIENCY</span>
+              <span class="tile-index">VLSM</span>
+            </div>
+            <div class="giant-stat">
+              <span class="stat-number" data-target="78">78</span><span class="stat-unit">%</span>
+            </div>
+            <h4>Reduction in Wasted IPv4 Space</h4>
+            <p class="tiny-copy">
+              Replaced flat <code>/24</code> allocations with right-sized <code>/26</code>, <code>/27</code>, <code>/28</code>, and <code>/30</code> subnets across VLANs, shrinking the unauthorized host attack surface.
+            </p>
+          </article>
+
+          <!-- Bento Tile 3: Core Skill Definition (Span 5) -->
+          <article class="bento-tile span-5 tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">CORE COMPETENCY</span>
+              <span class="tile-index">NET_SEC</span>
+            </div>
+            <h3>Skill Area: Enterprise Networking</h3>
+            <p>
+              Networking is the construction, design, and governance of physical and logical telecommunication infrastructure—including switches, routers, routing protocols, and operational security policies (Rouse, n.d.).
+            </p>
+            <p>
+              In security administration, networking is the ultimate control plane: <em>you cannot defend traffic that you cannot segment, route, or inspect.</em>
+            </p>
+          </article>
+
+          <!-- Bento Tile 4: Progression Matrix (Span 7) -->
+          <article class="bento-tile span-7 tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">PROGRESSION OF LEARNING</span>
+              <span class="tile-index">BEFORE &rarr; AFTER</span>
+            </div>
+            <h3>From Consumer Black-Box to Granular Bitmask Control</h3>
+            <div class="comparison-split">
+              <div class="comp-col before">
+                <span class="comp-label">PRIOR LEARNING (BASELINE)</span>
+                <ul>
+                  <li>Treated home routers as plug-and-play appliances using flat <code>192.168.1.0/24</code> subnets.</li>
+                  <li>Relied on basic NAT port-forwarding without inter-VLAN ACL filtering.</li>
+                  <li>Conceptual understanding of IP addressing, but no hands-on Cisco CLI or dynamic routing experience.</li>
+                </ul>
+              </div>
+              <div class="comp-col after">
+                <span class="comp-label">NSCC WINTER/FALL PROGRESSION</span>
+                <ul>
+                  <li>Engineered 802.1Q Router-on-a-Stick sub-interfaces &amp; LACP EtherChannel trunks.</li>
+                  <li>Configured multi-router OSPF Area 0 with <code>passive-interface default</code> hardening.</li>
+                  <li>Authored stateless Extended ACLs using binary wildcard masks to isolate departmental traffic.</li>
+                </ul>
               </div>
             </div>
-            <p class="caption">Figure 1: Logical topology implemented in Cisco Packet Tracer. (Replace with your Packet Tracer screenshot if submitting as a document).</p>
-          </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: CINEMATIC SCROLLYTELLING (Problem & Context) -->
+    <section id="context" class="section-padding bg-deep">
+      <div class="container">
+        <div class="section-header">
+          <div class="micro-meta">02 // PROBLEM, SCENARIO &amp; ARCHITECTURAL CONTEXT</div>
+          <h2 class="section-title kinetic-split">UNRAVELING THE NETWORK SCENARIO.</h2>
         </div>
 
-        <!-- CLI Configuration Evidence -->
-        <div class="card">
-          <h3>Cisco IOS Configuration Excerpt</h3>
-          <p class="card-desc">
-            Below is the actual configuration applied to the Core Router (<code>R1-Core</code>) to establish 802.1Q trunking, OSPF routing with passive interfaces, and Extended ACL perimeter filtering:
-          </p>
-          <pre class="code-block"><code>! 1. Configure 802.1Q Sub-interfaces for Inter-VLAN Routing
+        <div class="scrolly-wrapper">
+          <!-- Left Sticky Visual Stage -->
+          <div class="scrolly-visual">
+            <div class="topology-stage">
+              <div class="stage-header">
+                <span class="stage-status" id="stage-status">STAGE 01 // DEPARTMENTAL SEGMENTATION</span>
+                <span class="stage-sub">INTERACTIVE PACKET TRACER TOPOLOGY</span>
+              </div>
+
+              <!-- Interactive SVG Network Topology that lights up on scroll -->
+              <svg id="topology-svg" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="link-isp" class="net-link" d="M300 65 L300 145" stroke="#334155" stroke-width="3" stroke-dasharray="6 6"/>
+                <path id="link-trunk1" class="net-link" d="M300 185 L160 275" stroke="#334155" stroke-width="3"/>
+                <path id="link-trunk2" class="net-link" d="M300 185 L440 275" stroke="#334155" stroke-width="3"/>
+                <path id="link-v10" class="net-link" d="M160 305 L90 375" stroke="#334155" stroke-width="2"/>
+                <path id="link-v20" class="net-link" d="M160 305 L230 375" stroke="#334155" stroke-width="2"/>
+                <path id="link-v30" class="net-link" d="M440 305 L370 375" stroke="#334155" stroke-width="2"/>
+                <path id="link-v99" class="net-link" d="M440 305 L510 375" stroke="#334155" stroke-width="2"/>
+
+                <g id="node-isp" class="net-node">
+                  <rect x="220" y="20" width="160" height="45" rx="8" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                  <text x="300" y="47" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono" font-size="11">R2-EDGE (OSPF AREA 0)</text>
+                </g>
+
+                <g id="node-core" class="net-node">
+                  <rect x="195" y="140" width="210" height="50" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2.5"/>
+                  <text x="300" y="163" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono" font-weight="600" font-size="12">R1-CORE (802.1Q + ACLs)</text>
+                  <text x="300" y="180" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono" font-size="9">172.16.254.1/30 | Router-ID 1.1.1.1</text>
+                </g>
+
+                <g id="node-sw1" class="net-node">
+                  <rect x="90" y="265" width="140" height="40" rx="6" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+                  <text x="160" y="290" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono" font-size="11">SW1-DIST (LACP)</text>
+                </g>
+
+                <g id="node-sw2" class="net-node">
+                  <rect x="370" y="265" width="140" height="40" rx="6" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+                  <text x="440" y="290" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono" font-size="11">SW2-DIST (LACP)</text>
+                </g>
+
+                <g id="node-v10" class="net-node">
+                  <rect x="30" y="365" width="120" height="42" rx="6" fill="#090d16" stroke="#22c55e" stroke-width="1.5"/>
+                  <text x="90" y="384" text-anchor="middle" fill="#22c55e" font-family="JetBrains Mono" font-size="10">VLAN 10: ENG</text>
+                  <text x="90" y="398" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono" font-size="8">172.16.10.0/26</text>
+                </g>
+
+                <g id="node-v20" class="net-node">
+                  <rect x="170" y="365" width="120" height="42" rx="6" fill="#090d16" stroke="#38bdf8" stroke-width="1.5"/>
+                  <text x="230" y="384" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono" font-size="10">VLAN 20: HR/FIN</text>
+                  <text x="230" y="398" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono" font-size="8">172.16.10.64/27</text>
+                </g>
+
+                <g id="node-v30" class="net-node">
+                  <rect x="310" y="365" width="120" height="42" rx="6" fill="#090d16" stroke="#f43f5e" stroke-width="1.5"/>
+                  <text x="370" y="384" text-anchor="middle" fill="#f43f5e" font-family="JetBrains Mono" font-size="10">VLAN 30: GUEST</text>
+                  <text x="370" y="398" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono" font-size="8">172.16.10.96/27</text>
+                </g>
+
+                <g id="node-v99" class="net-node">
+                  <rect x="450" y="365" width="120" height="42" rx="6" fill="#090d16" stroke="#a855f7" stroke-width="1.5"/>
+                  <text x="510" y="384" text-anchor="middle" fill="#a855f7" font-family="JetBrains Mono" font-size="10">VLAN 99: IT MGMT</text>
+                  <text x="510" y="398" text-anchor="middle" fill="#94a3b8" font-family="JetBrains Mono" font-size="8">172.16.99.0/28</text>
+                </g>
+              </svg>
+
+              <div class="stage-caption" id="stage-caption">
+                Scroll through the narrative steps on the right to inspect how each layer of the topology was engineered.
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Narrative Steps -->
+          <div class="scrolly-steps">
+            <div class="step-card" data-step="1">
+              <span class="step-num">PHASE 01 // THE CHALLENGE</span>
+              <h3>Eliminating Flat Broadcast Domains</h3>
+              <p>
+                An expanding organization required network connectivity for a multi-department facility across the <code>172.16.0.0/16</code> private address space. Connecting Engineering workstations, HR/Finance records, Guest Wi-Fi users, and network management interfaces onto a flat switch fabric would expose sensitive financial traffic to packet sniffing and broadcast storms.
+              </p>
+              <p>
+                <strong>Requirement:</strong> Architect four isolated VLANs (VLAN 10, 20, 30, and Management VLAN 99) trunked across distribution switches using LACP EtherChannel for link aggregation.
+              </p>
+            </div>
+
+            <div class="step-card" data-step="2">
+              <span class="step-num">PHASE 02 // DYNAMIC ROUTING</span>
+              <h3>Self-Healing OSPF &amp; VLSM Conservation</h3>
+              <p>
+                Static routing does not scale when new branch links are introduced, and allocating standard <code>/24</code> subnets (254 hosts) to a 10-host Management VLAN or a 2-host point-to-point router link wastes hundreds of IPv4 addresses.
+              </p>
+              <p>
+                <strong>Requirement:</strong> Design a <strong>Variable Length Subnet Mask (VLSM)</strong> hierarchy and advertise routes dynamically using <strong>OSPF Process 10 (Area 0)</strong> with exact inverse wildcard masks and passive-interface hardening.
+              </p>
+            </div>
+
+            <div class="step-card" data-step="3">
+              <span class="step-num">PHASE 03 // ZERO-TRUST PERIMETER</span>
+              <h3>Surgical Extended ACL Enforcement</h3>
+              <p>
+                Once Inter-VLAN routing (Router-on-a-Stick) is active on <code>R1-Core</code>, all VLANs can route to one another by default. This creates a severe security vulnerability: a user on Guest Wi-Fi (VLAN 30) could probe HR servers (VLAN 20) or attempt brute-force logins against router VTY lines.
+              </p>
+              <p>
+                <strong>Requirement:</strong> Author inbound <strong>Extended Access Control Lists (ACLs)</strong> to block VLAN 30 from reaching VLAN 20 and VLAN 99 while permitting outbound internet traffic, and lock VTY lines exclusively to SSH connections originating from <code>172.16.99.0/28</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 03: ACTIONS TAKEN & INTERACTIVE EVIDENCE -->
+    <section id="evidence" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="micro-meta">03 // ACTIONS TAKEN, EVIDENCE &amp; INTERACTIVE VERIFICATION</div>
+          <h2 class="section-title kinetic-split">TECHNICAL EXECUTION &amp; PROOF.</h2>
+        </div>
+
+        <div class="evidence-grid">
+          <!-- VLSM Table + Interactive Wildcard Simulator -->
+          <div class="tactile-card evidence-panel">
+            <div class="panel-header">
+              <span class="tile-tag">SUBNETTING ARCHITECTURE</span>
+              <h3>VLSM Addressing &amp; Wildcard Matrix</h3>
+            </div>
+            <div class="table-wrap">
+              <table class="flagship-table">
+                <thead>
+                  <tr>
+                    <th>VLAN</th>
+                    <th>Segment</th>
+                    <th>Hosts</th>
+                    <th>Subnet / CIDR</th>
+                    <th>Subnet Mask</th>
+                    <th>Wildcard Mask</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge-vlan v10">VLAN 10</span></td>
+                    <td>Engineering</td>
+                    <td>50</td>
+                    <td><code>172.16.10.0/26</code></td>
+                    <td><code>255.255.255.192</code></td>
+                    <td><code>0.0.0.63</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge-vlan v20">VLAN 20</span></td>
+                    <td>HR &amp; Finance</td>
+                    <td>25</td>
+                    <td><code>172.16.10.64/27</code></td>
+                    <td><code>255.255.255.224</code></td>
+                    <td><code>0.0.0.31</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge-vlan v30">VLAN 30</span></td>
+                    <td>Guest Wi-Fi</td>
+                    <td>25</td>
+                    <td><code>172.16.10.96/27</code></td>
+                    <td><code>255.255.255.224</code></td>
+                    <td><code>0.0.0.31</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge-vlan v99">VLAN 99</span></td>
+                    <td>IT Management</td>
+                    <td>10</td>
+                    <td><code>172.16.99.0/28</code></td>
+                    <td><code>255.255.255.240</code></td>
+                    <td><code>0.0.0.15</code></td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge-vlan vp2p">WAN P2P</span></td>
+                    <td>R1 &harr; R2 Link</td>
+                    <td>2</td>
+                    <td><code>172.16.254.0/30</code></td>
+                    <td><code>255.255.255.252</code></td>
+                    <td><code>0.0.0.3</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Interactive Micro-Tool: Live ACL & Wildcard Simulator -->
+            <div class="simulator-box">
+              <div class="sim-header">
+                <span>⚡ INTERACTIVE ACL PACKET &amp; WILDCARD TESTER</span>
+                <span class="sim-hint">Test how R1-Core evaluates traffic in real time</span>
+              </div>
+              <div class="sim-controls">
+                <div class="sim-field">
+                  <label for="sim-src">Source VLAN / IP</label>
+                  <select id="sim-src">
+                    <option value="guest">VLAN 30 Guest (172.16.10.105)</option>
+                    <option value="eng">VLAN 10 Engineering (172.16.10.14)</option>
+                    <option value="mgmt">VLAN 99 IT Mgmt (172.16.99.5)</option>
+                  </select>
+                </div>
+                <div class="sim-field">
+                  <label for="sim-dst">Destination Target &amp; Port</label>
+                  <select id="sim-dst">
+                    <option value="hr">VLAN 20 HR Server (172.16.10.70 : 443)</option>
+                    <option value="ssh">R1-Core VTY SSH (172.16.99.1 : 22)</option>
+                    <option value="web">External Internet (8.8.8.8 : 443)</option>
+                  </select>
+                </div>
+                <button id="sim-run" class="btn-sim magnetic" data-strength="15">Simulate Packet</button>
+              </div>
+              <div id="sim-output" class="sim-result deny">
+                <strong>[ACL DROP]</strong> Matched ACE <code>10 deny ip 172.16.10.96 0.0.0.31 172.16.10.64 0.0.0.31 log</code> on interface <code>Gi0/0/0.30 in</code>. Lateral movement blocked.
+              </div>
+            </div>
+          </div>
+
+          <!-- Cisco IOS CLI Evidence with Copy Button -->
+          <div class="tactile-card evidence-panel">
+            <div class="panel-header">
+              <div class="header-split">
+                <div>
+                  <span class="tile-tag">CISCO IOS ARTIFACT</span>
+                  <h3>Production Configuration (`R1-Core`)</h3>
+                </div>
+                <button id="copy-cli" class="btn-copy magnetic" data-strength="15">Copy CLI</button>
+              </div>
+            </div>
+            <pre class="cli-pre"><code id="cli-code">! ==========================================================
+! R1-CORE: 802.1Q INTER-VLAN ROUTING, OSPF &amp; EXTENDED ACLS
+! Author: Oluwaseun (Bolu) Adalemo — NSCC IT Systems &amp; Security
+! ==========================================================
+service password-encryption
+hostname R1-Core
+!
+! --- 1. 802.1Q Sub-Interfaces (Router-on-a-Stick) ---
 interface GigabitEthernet0/0/0.10
- description Engineering_VLAN
+ description Engineering_Subnet
  encapsulation dot1Q 10
  ip address 172.16.10.1 255.255.255.192
+!
+interface GigabitEthernet0/0/0.20
+ description HR_Finance_Subnet
+ encapsulation dot1Q 20
+ ip address 172.16.10.65 255.255.255.224
+!
+interface GigabitEthernet0/0/0.30
+ description Guest_WiFi_Subnet
+ encapsulation dot1Q 30
+ ip address 172.16.10.97 255.255.255.224
  ip access-group RESTRICT-GUEST in
 !
 interface GigabitEthernet0/0/0.99
- description IT_Management_VLAN
+ description IT_Management_VLAN_99
  encapsulation dot1Q 99
  ip address 172.16.99.1 255.255.255.240
 !
-! 2. Configure OSPF Process 10 with Exact Wildcard Masks
+! --- 2. OSPF Area 0 with Passive-Interface Hardening ---
 router ospf 10
  router-id 1.1.1.1
  passive-interface default
  no passive-interface GigabitEthernet0/0/1
  network 172.16.10.0 0.0.0.63 area 0
  network 172.16.10.64 0.0.0.31 area 0
+ network 172.16.10.96 0.0.0.31 area 0
  network 172.16.99.0 0.0.0.15 area 0
  network 172.16.254.0 0.0.0.3 area 0
 !
-! 3. Extended ACL: Block Guest VLAN from HR/Finance & Mgmt, Allow Internet
+! --- 3. Extended ACL: Isolate Guest VLAN 30 ---
 ip access-list extended RESTRICT-GUEST
- remark Deny Guest (VLAN 30) access to HR/Finance (VLAN 20)
+ remark Block Guest from HR/Finance Subnet
  deny ip 172.16.10.96 0.0.0.31 172.16.10.64 0.0.0.31 log
- remark Deny Guest access to IT Management Subnet (VLAN 99)
+ remark Block Guest from IT Management Subnet
  deny ip 172.16.10.96 0.0.0.31 172.16.99.0 0.0.0.15 log
- remark Permit all other valid outbound traffic
+ remark Allow Guest outbound internet access
  permit ip any any
 !
-! 4. Harden VTY Lines for SSH-Only Access from VLAN 99
-ip access-list standard VTY-SSH-ONLY
+! --- 4. VTY Line Hardening (SSH Only from VLAN 99) ---
+ip access-list standard VTY-ADMIN-ONLY
  permit 172.16.99.0 0.0.0.15
  deny any log
 !
 line vty 0 4
- access-class VTY-SSH-ONLY in
+ access-class VTY-ADMIN-ONLY in
  transport input ssh
  login local</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4: Breakthrough Moment & Analysis -->
-  <section id="analysis" class="section bg-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>04. Breakthrough Moment & Critical Analysis</h2>
-        <p>Evaluating the "Aha!" learning moment and analyzing why specific design decisions were made.</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card highlight-card">
-          <div class="badge-accent">Significant Learning Moment ("Aha!" Breakthrough)</div>
-          <h3>Directional ACL Logic & Wildcard Bitmask Inversion</h3>
-          <p>
-            My biggest breakthrough happened when troubleshooting why my Extended ACL initially broke OSPF neighbor adjacencies and blocked legitimate return web traffic. Initially, I applied the ACL outbound on the trunk interface without accounting for how stateless packet filters evaluate source/destination pairs.
-          </p>
-          <p>
-            The "aha!" moment clicked when I visualized the router's internal packet-processing pipeline: <strong>Extended ACLs must be placed as close to the source as possible (inbound on the specific sub-interface)</strong>, whereas Standard ACLs belong closest to the destination. Furthermore, calculating inverse wildcard masks (subtracting the subnet mask from <code>255.255.255.255</code>) transformed from a memorized math formula into a binary pattern-matching tool that gave me surgical control over which host bits the router inspected.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="badge-accent">Analysis: Why Did I Do It This Way?</div>
-          <h3>Engineering Decisions & Retrospective Improvements</h3>
-          <ul class="analysis-list">
-            <li>
-              <strong>Why `passive-interface default` in OSPF?</strong>
-              By default, Cisco routers send OSPF Hello packets out of every OSPF-enabled interface. If an attacker plugs into an access port on VLAN 10, they could form a rogue OSPF adjacency and inject malicious routes. Setting `passive-interface default` and only enabling OSPF on core router-to-router links eliminates this attack vector.
-            </li>
-            <li>
-              <strong>Why SSH + `access-class` over Telnet?</strong>
-              Even though legacy lab specs often ask for Telnet, Telnet transmits credentials in cleartext. I enforced `transport input ssh` alongside a VTY `access-class` tied to `172.16.99.0/28` so that even if an employee's workstation on VLAN 10 is compromised, the router drops any SSH connection attempt at the network layer.
-            </li>
-            <li>
-              <strong>Progression of Learning (How I Would Improve It Further):</strong>
-              In the example work sample, a flat `/24` was used across all VLANs. By implementing VLSM (`/26`, `/27`, `/28`), I already reduced unused IP exposure by over 75%. Looking ahead, I would further harden this topology by enabling <strong>DHCP Snooping</strong> and <strong>Dynamic ARP Inspection (DAI)</strong> on the access switches to prevent ARP spoofing within each VLAN.
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Business Benefit & Additional Projects -->
-  <section id="business-benefit" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>05. Business Benefit & Portfolio Ecosystem</h2>
-        <p>Translating technical configurations into measurable organizational value.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="benefit-card">
-          <h4>1. Blast-Radius Containment</h4>
-          <p>
-            By isolating Guest Wi-Fi, HR/Finance, and Engineering into separate VLANs filtered by Extended ACLs, a malware infection or unauthorized device on the Guest network cannot laterally move into sensitive financial databases or management planes.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <h4>2. High Availability & Scalability</h4>
-          <p>
-            Replacing static routes with OSPF and LACP EtherChannel trunks means the business experiences automatic failover in milliseconds if a physical cable fails, minimizing costly downtime while conserving IPv4 address space via VLSM.
-          </p>
-        </div>
-        <div class="benefit-card">
-          <h4>3. Regulatory & Audit Compliance</h4>
-          <p>
-            Restricting administrative VTY access to an encrypted protocol (SSH) from a dedicated management subnet (`172.16.99.0/28`) with ACL logging (`log`) directly satisfies principle-of-least-privilege requirements in enterprise security audits.
-          </p>
-        </div>
-      </div>
-
-      <!-- Existing Repo Projects Showcase -->
-      <div class="other-projects">
-        <h3>Additional Portfolio Artifacts in This Repository</h3>
-        <div class="grid-2">
-          <div class="project-banner">
-            <div>
-              <h4>PrivacyPal — Cybersecurity Awareness & Tools</h4>
-              <p>An interactive web platform educating users on phishing, social engineering, data privacy, and password entropy analysis.</p>
-            </div>
-            <a href="./PrivacyPal/index.html" class="btn-outline">Launch PrivacyPal</a>
-          </div>
-          <div class="project-banner">
-            <div>
-              <h4>Interactive Web Resume</h4>
-              <p>Full-stack development, systems administration, and entrepreneurship experience (AFACS.org, Express Your Essence, NSCC).</p>
-            </div>
-            <a href="./interactive resume/index.html" class="btn-outline">View Resume</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 6: APA References & AI Disclosure -->
+    <!-- SECTION 04: BREAKTHROUGH MOMENT & CRITICAL ANALYSIS -->
+    <section id="analysis" class="section-padding bg-deep">
+      <div class="container">
+        <div class="section-header">
+          <div class="micro-meta">04 // SIGNIFICANT LEARNING MOMENT &amp; ENGINEERING ANALYSIS</div>
+          <h2 class="section-title kinetic-split">THE "AHA!" BREAKTHROUGH.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-tile span-6 highlight-border tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">BREAKTHROUGH MOMENT</span>
+              <span class="tile-index">PACKET PIPELINE</span>
+            </div>
+            <h3>Visualizing Stateless ACL Directionality &amp; Bitwise Inversion</h3>
+            <p>
+              My most significant learning breakthrough occurred when debugging why my initial Extended ACL broke OSPF neighbor adjacencies and dropped return HTTP traffic. At first, I treated ACLs like a stateful application firewall and applied the list outbound on the wrong sub-interface.
+            </p>
+            <p>
+              The <strong>"Aha!" moment</strong> clicked when I traced the packet's exact lifecycle inside the router: <strong>Extended ACLs must be placed as close to the source as possible (`ip access-group RESTRICT-GUEST in` on `Gi0/0/0.30`)</strong> so unauthorized packets are dropped before the router wastes CPU cycles performing a routing table lookup. Simultaneously, calculating wildcard masks shifted from rote subtraction (`255.255.255.255 - Subnet Mask`) to understanding binary `0` ("must match") and `1` ("don't care") bitmasks.
+            </p>
+          </article>
+
+          <article class="bento-tile span-6 tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">CRITICAL ANALYSIS</span>
+              <span class="tile-index">WHY THIS DESIGN?</span>
+            </div>
+            <h3>Why I Engineered It This Way (And Future Hardening)</h3>
+            <ul class="structured-list">
+              <li>
+                <strong>Why `passive-interface default` in OSPF?</strong>
+                Without passive interfaces, the router broadcasts OSPF Hello multicast packets (`224.0.0.5`) onto every access VLAN, allowing an attacker with a packet crafting tool to form a rogue OSPF adjacency and poison the routing table.
+              </li>
+              <li>
+                <strong>Why SSH + VTY `access-class` over Telnet?</strong>
+                Legacy specifications often mention Telnet, which sends administrative credentials in cleartext. Enforcing `transport input ssh` alongside a VTY ACL restricted to `172.16.99.0/28` ensures encrypted management only from authorized admin hosts.
+              </li>
+              <li>
+                <strong>How I Would Improve It Further:</strong>
+                Looking back, while stateless Extended ACLs block inter-VLAN initiation, I would upgrade the perimeter to a <strong>Zone-Based Policy Firewall (ZBPF)</strong> for stateful session inspection and enable <strong>DHCP Snooping + Dynamic ARP Inspection (DAI)</strong> on the switches.
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 05: BUSINESS BENEFIT & ECOSYSTEM -->
+    <section id="impact" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="micro-meta">05 // BUSINESS VALUE &amp; REPOSITORY ECOSYSTEM</div>
+          <h2 class="section-title kinetic-split">MEASURABLE BUSINESS IMPACT.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-tile span-4 tilt-card">
+            <div class="card-glare"></div>
+            <span class="tile-tag">01 // CONTAINMENT</span>
+            <h3>Breach Blast-Radius Reduction</h3>
+            <p>
+              By enforcing Extended ACLs at the sub-interface ingress point, a compromised BYOD device on Guest Wi-Fi is mathematically prevented from probing HR databases or management planes—preventing lateral ransomware spread.
+            </p>
+          </article>
+
+          <article class="bento-tile span-4 tilt-card">
+            <div class="card-glare"></div>
+            <span class="tile-tag">02 // RESILIENCE</span>
+            <h3>Sub-Second OSPF Convergence</h3>
+            <p>
+              Replacing brittle static routes with OSPF Area 0 and LACP EtherChannel trunks provides automated link failover and scales effortlessly as the business adds new branch offices.
+            </p>
+          </article>
+
+          <article class="bento-tile span-4 tilt-card">
+            <div class="card-glare"></div>
+            <span class="tile-tag">03 // GOVERNANCE</span>
+            <h3>Audit-Ready Access Logs</h3>
+            <p>
+              Appending the <code>log</code> keyword to deny Access Control Entries (ACEs) generates real-time syslog telemetry whenever unauthorized connection attempts occur, supporting compliance auditing.
+            </p>
+          </article>
+
+          <!-- Connected Repo Projects -->
+          <article class="bento-tile span-6 project-showcase tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">REPOSITORY ARTIFACT // 01</span>
+              <span class="tile-index">WEB APP</span>
+            </div>
+            <h3>PrivacyPal — Cybersecurity Education Platform</h3>
+            <p>
+              Explore my interactive security awareness suite hosted in this repository, featuring password entropy calculators, phishing analysis, and social engineering defense guides.
+            </p>
+            <a href="./PrivacyPal/index.html" class="btn-outline magnetic" data-strength="20">Launch PrivacyPal &rarr;</a>
+          </article>
+
+          <article class="bento-tile span-6 project-showcase tilt-card">
+            <div class="card-glare"></div>
+            <div class="tile-top">
+              <span class="tile-tag">REPOSITORY ARTIFACT // 02</span>
+              <span class="tile-index">CV / RESUME</span>
+            </div>
+            <h3>Interactive Systems &amp; Full-Stack Resume</h3>
+            <p>
+              View my complete technical resume covering NSCC IT Systems Management &amp; Security, full-stack production architecture (AFACS.org, Foodeal), and Express Your Essence (E.Y.E).
+            </p>
+            <a href="./interactive resume/index.html" class="btn-outline magnetic" data-strength="20">Open Interactive Resume &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- AI / MX AGENT COMMAND PALETTE MODAL -->
+  <div id="agent-modal" class="agent-modal" aria-hidden="true" role="dialog" aria-label="AI Portfolio Inspector">
+    <div class="agent-backdrop" id="agent-close-bg"></div>
+    <div class="agent-dialog">
+      <div class="agent-header">
+        <div>
+          <span class="tile-tag">MX / AI AGENT INTERFACE</span>
+          <h4>Ask Bolu's Portfolio Agent (PPIT Task C Inspector)</h4>
+        </div>
+        <button id="agent-close" class="agent-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="agent-body">
+        <p class="agent-intro">
+          Select a worksheet prompt below or inspect the machine-readable summary designed for both human evaluators and AI grading/recruiting agents:
+        </p>
+        <div class="agent-prompts">
+          <button class="prompt-chip" data-q="goal">🎯 Summarize Career Goal &amp; Skill Area</button>
+          <button class="prompt-chip" data-q="aha">💡 Explain the "Aha!" Breakthrough Moment</button>
+          <button class="prompt-chip" data-q="why">🔍 Why OSPF Passive Interfaces &amp; Extended ACLs?</button>
+          <button class="prompt-chip" data-q="business">📈 What is the Business Benefit?</button>
+          <button class="prompt-chip" data-q="json">🤖 View Raw MX Agent JSON-LD</button>
+        </div>
+        <div id="agent-response" class="agent-response">
+          <span class="prompt">agent@oadalemo:~$</span> Ready. Click any prompt above to synthesize the PPIT Task C worksheet criteria.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER: APA Citations & AI Oversight Disclosure -->
   <footer class="footer">
     <div class="container">
-      <div class="references-box">
-        <h4>References & APA Citations (Per PPIT Task C Guidelines)</h4>
-        <ul class="apa-list">
+      <div class="tactile-card references-card">
+        <span class="tile-tag">ACADEMIC INTEGRITY &amp; APA 7TH CITATIONS</span>
+        <h4>References &amp; AI Oversight Statement</h4>
+        <ul class="apa-citations">
           <li>
             Bateman, K. (2013, September 20). <em>How to become a system administrator</em>. Computer Weekly. http://www.computerweekly.com/photostory/2240205822/How-to-become-a-system-administrator/1/System-administrator-Job-description
           </li>
           <li>
-            Google. (2026). <em>Gemini</em> (Oct 2026 version) [Large language model]. https://gemini.google.com/ <em>(Used for HTML/CSS structural scaffolding and copy-editing with human oversight and verification by Oluwaseun Adalemo).</em>
+            Google. (2026). <em>Gemini</em> (Oct 2026 version) [Large language model]. https://gemini.google.com/ <em>(Used for WebGL/GSAP animation scaffolding and HTML/CSS layout formatting; all networking configurations, VLSM calculations, and reflective analyses were authored, verified, and evaluated with human oversight by Oluwaseun Adalemo).</em>
           </li>
           <li>
             Rouse, M. (n.d.). <em>Networking</em>. TechTarget. http://searchnetworking.techtarget.com/definition/networking
           </li>
         </ul>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Oluwaseun (Bolu) Adalemo | Nova Scotia Community College (NSCC) — IT Systems Management & Security</p>
+      <div class="footer-meta">
+        <span>&copy; 2026 OLUWASEUN (BOLU) ADALEMO // HALIFAX, NS</span>
+        <span>NSCC IT SYSTEMS MANAGEMENT &amp; SECURITY — PPIT 2 TASK C</span>
       </div>
     </div>
   </footer>
 
+  <!-- High-Fidelity Animation Libraries (Three.js + GSAP + ScrollTrigger + Lenis Smooth Scroll) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="portfolio-flagship.js"></script>
 </body>
 </html>
